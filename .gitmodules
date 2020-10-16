@@ -1,0 +1,4 @@
+[submodule "almik"]
+	path = almik
+	url = git@git.vauxoo.com:vauxoo/almik.git
+	branch = 13.0
