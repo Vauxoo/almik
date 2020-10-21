@@ -2,3 +2,7 @@
 	path = almik
 	url = git@git.vauxoo.com:vauxoo/almik.git
 	branch = 13.0
+[submodule "stock-logistics-reporting"]
+	path = stock-logistics-reporting
+	url = git@github.com:Vauxoo/stock-logistics-reporting.git
+	branch = 13.0
