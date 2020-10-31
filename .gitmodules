@@ -6,3 +6,7 @@
 	path = stock-logistics-reporting
 	url = git@github.com:Vauxoo/stock-logistics-reporting.git
 	branch = 13.0
+[submodule "stock-logistics-workflow"]
+	path = stock-logistics-workflow
+	url = git@github.com:Vauxoo/stock-logistics-workflow.git
+	branch = 13.0
