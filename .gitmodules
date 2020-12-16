@@ -10,3 +10,7 @@
 	path = stock-logistics-workflow
 	url = git@github.com:Vauxoo/stock-logistics-workflow.git
 	branch = 13.0
+[submodule "account_reconcile_partial"]
+	path = account_reconcile_partial
+	url = git@git.vauxoo.com:vauxoo/account_reconcile_partial.git
+	branch = 13.0
