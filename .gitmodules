@@ -14,3 +14,7 @@
 	path = account_reconcile_partial
 	url = git@git.vauxoo.com:vauxoo/account_reconcile_partial.git
 	branch = 13.0
+[submodule "product-attribute"]
+	path = product-attribute
+	url = git@github.com:Vauxoo/product-attribute.git
+	branch = 13.0
