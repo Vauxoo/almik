@@ -18,3 +18,11 @@
 	path = product-attribute
 	url = git@github.com:Vauxoo/product-attribute.git
 	branch = 13.0
+[submodule "l10n-mx-carta-porte"]
+	path = l10n-mx-carta-porte
+	url = git@git.vauxoo.com:vauxoo/l10n-mx-carta-porte.git
+	branch = 13.0
+[submodule "mexico"]
+	path = mexico
+	url = git@git.vauxoo.com:vauxoo/mexico.git
+	branch = 13.0
