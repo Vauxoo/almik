@@ -26,3 +26,7 @@
 	path = mexico
 	url = git@git.vauxoo.com:vauxoo/mexico.git
 	branch = 13.0
+[submodule "stock-logistics-warehouse"]
+	path = stock-logistics-warehouse
+	url = git@github.com:Vauxoo/stock-logistics-warehouse.git
+	branch = 13.0
