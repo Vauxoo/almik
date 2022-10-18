@@ -30,3 +30,7 @@
 	path = stock-logistics-warehouse
 	url = git@github.com:Vauxoo/stock-logistics-warehouse.git
 	branch = 13.0
+[submodule "l10n-mx-edi-40"]
+	path = l10n-mx-edi-40
+	url = git@git.vauxoo.com:vauxoo/l10n-mx-edi-40.git
+	branch = 13.0
