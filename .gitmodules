@@ -34,3 +34,7 @@
 	path = l10n-mx-edi-40
 	url = git@git.vauxoo.com:vauxoo/l10n-mx-edi-40.git
 	branch = 13.0
+[submodule "mexico-document"]
+	path = mexico-document
+	url = git@git.vauxoo.com:vauxoo/mexico-document.git
+	branch = 13.0
