@@ -1,40 +1,48 @@
 [submodule "almik"]
 	path = almik
 	url = git@git.vauxoo.com:vauxoo/almik.git
-	branch = 13.0
+	branch = 16.0
 [submodule "stock-logistics-reporting"]
 	path = stock-logistics-reporting
 	url = git@github.com:Vauxoo/stock-logistics-reporting.git
-	branch = 13.0
+	branch = 16.0
 [submodule "stock-logistics-workflow"]
 	path = stock-logistics-workflow
 	url = git@github.com:Vauxoo/stock-logistics-workflow.git
-	branch = 13.0
-[submodule "account_reconcile_partial"]
-	path = account_reconcile_partial
-	url = git@git.vauxoo.com:vauxoo/account_reconcile_partial.git
-	branch = 13.0
+	branch = 16.0
 [submodule "product-attribute"]
 	path = product-attribute
 	url = git@github.com:Vauxoo/product-attribute.git
-	branch = 13.0
-[submodule "l10n-mx-carta-porte"]
-	path = l10n-mx-carta-porte
-	url = git@git.vauxoo.com:vauxoo/l10n-mx-carta-porte.git
-	branch = 13.0
-[submodule "mexico"]
-	path = mexico
-	url = git@git.vauxoo.com:vauxoo/mexico.git
-	branch = 13.0
+	branch = 16.0
 [submodule "stock-logistics-warehouse"]
 	path = stock-logistics-warehouse
 	url = git@github.com:Vauxoo/stock-logistics-warehouse.git
-	branch = 13.0
-[submodule "l10n-mx-edi-40"]
-	path = l10n-mx-edi-40
-	url = git@git.vauxoo.com:vauxoo/l10n-mx-edi-40.git
-	branch = 13.0
+	branch = 16.0
 [submodule "stock-tracking-fields"]
 	path = stock-tracking-fields
 	url = git@git.vauxoo.com:vauxoo/stock-tracking-fields.git
-	branch = 13.0
+	branch = 16.0
+[submodule "l10n-mx-edi-cancellation"]
+	path = l10n-mx-edi-cancellation
+	url = git@git.vauxoo.com:mexico/l10n-mx-edi-cancellation.git
+	branch = 16.0
+[submodule "l10n-mx-edi-partner-defaults"]
+	path = l10n-mx-edi-partner-defaults
+	url = git@git.vauxoo.com:mexico/l10n-mx-edi-partner-defaults.git
+	branch = 16.0
+[submodule "l10n-mx-edi-fiscal-legend"]
+	path = l10n-mx-edi-fiscal-legend
+	url = git@git.vauxoo.com:mexico/l10n-mx-edi-fiscal-legend.git
+	branch = 16.0
+[submodule "dunosusa"]
+	path = dunosusa
+	url = git@git.vauxoo.com:addendas/dunosusa.git
+	branch = 16.0
+[submodule "envases"]
+	path = envases
+	url = git@git.vauxoo.com:addendas/envases.git
+	branch = 16.0
+[submodule "sanmina"]
+	path = sanmina
+	url = git@git.vauxoo.com:addendas/sanmina.git
+	branch = 16.0
