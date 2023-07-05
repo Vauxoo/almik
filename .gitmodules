@@ -34,3 +34,7 @@
 	path = l10n-mx-edi-40
 	url = git@git.vauxoo.com:vauxoo/l10n-mx-edi-40.git
 	branch = 13.0
+[submodule "stock-tracking-fields"]
+	path = stock-tracking-fields
+	url = git@git.vauxoo.com:vauxoo/stock-tracking-fields.git
+	branch = 13.0
