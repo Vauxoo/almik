@@ -50,3 +50,7 @@
 	path = l10n-mx-carta-porte
 	url = git@git.vauxoo.com:vauxoo/l10n-mx-carta-porte.git
 	branch = 16.0
+[submodule "account-payment-split"]
+	path = account-payment-split
+	url = git@git.vauxoo.com:vauxoo/account-payment-split.git
+	branch = 16.0
