@@ -58,3 +58,7 @@
 	path = l10n-mx-edi-payment-split
 	url = git@git.vauxoo.com:mexico/l10n-mx-edi-payment-split.git
 	branch = 16.0
+[submodule "addons-vauxoo"]
+	path = addons-vauxoo
+	url = git@github.com:Vauxoo/addons-vauxoo.git
+	branch = 16.0
