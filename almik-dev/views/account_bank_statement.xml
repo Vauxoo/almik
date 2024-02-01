@@ -23,33 +23,17 @@
                                 <field name="company_id" invisible="true"/>
                                 <field name="payment_ref" readonly="true" optional="hide"/>
                                 <field name="ref" readonly="true" optional="hide"/>
-                                <field name="beneficiario" readonly="true" optional="hide"/>
-                                <field name="ref_numerica" readonly="true" optional="hide"/>
-                                <field name="banco" readonly="true" optional="hide"/>
-                                <field name="observaciones" readonly="true" optional="hide"/>
                                 <field name="name" readonly="true" optional="hide"/>
                                 <field name="partner_id"  optional="hide"/>
-                                <field name="invoice_id"  optional="hide"/>
                                 <field name="amount" readonly="true" optional="hide"/>
-                                <field name="saldo" readonly="true" optional="hide"/>
-                                <field name="comentarios_lytics"/>
-                                <field name="tipo_operacion"/>
                                 <field name="currency_id" readonly="true" optional="hide"/>
                             </tree>
                             <form>
                                 <field name="date"/>
                                 <field name="payment_ref" />
                                 <field name="ref" optional="hide"/>
-                                <field name="beneficiario" optional="hide"/>
-                                <field name="ref_numerica" optional="hide"/>
-                                <field name="banco" optional="hide"/>
-                                <field name="observaciones" optional="hide"/>
-                                <field name="name" optional="hide"/>
-                                
-                                <field name="invoice_id" optional="hide"/>
+                                <field name="name" optional="hide"/>        
                                 <field name="amount"/>
-                                <field name="saldo"/>
-                                <field name="comentarios_lytics" optional="hide"/>
                                 <field name="currency_id"/>
                             </form>
                         </field>
