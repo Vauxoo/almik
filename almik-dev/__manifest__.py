@@ -18,5 +18,6 @@
     # always loaded
     'data': [
         'views/account_bank_statement.xml',
+        'views/account_move.xml',
     ],
 }
