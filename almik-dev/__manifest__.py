@@ -13,11 +13,14 @@
 
 
     # any module necessary for this one to work correctly
-    'depends': ['account'],
+    'depends': ['base','account'],
 
     # always loaded
-    'data': [
+    'data': [        
+        'data/cron_rate_exchange.xml',
+        'data/email_template.xml',
         'views/account_bank_statement.xml',
         'views/account_move.xml',
+        'views/res_currency.xml',
     ],
 }
