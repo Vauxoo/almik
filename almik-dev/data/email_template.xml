@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
 <odoo>
     <data>
-        <template id="almik_dev_email_template_edi_invoice" inherit_id="account.email_template_edi_invoice">
+        <record id="almik_dev_email_template_edi_invoice" inherit_id="account.email_template_edi_invoice">
             <xpath expr="//field[@name='email_from']" position="replace">
                 <field name="email_from" eval="user.email_formatted"/>
             </xpath>
-        </template>
-        <template id="almik_dev_email_template_edi_credit_note" inherit_id="account.email_template_edi_credit_note">
+        </record>
+        <record id="almik_dev_email_template_edi_credit_note" inherit_id="account.email_template_edi_credit_note">
             <xpath expr="//field[@name='email_from']" position="replace">
                 <field name="email_from" eval="user.email_formatted"/>
             </xpath>
-        </template>
+        </record>
     </data>
 </odoo>
