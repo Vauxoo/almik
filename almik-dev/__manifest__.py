@@ -18,7 +18,7 @@
     # always loaded
     'data': [        
         'data/cron_rate_exchange.xml',
-        'data/email_template.xml',
+        # 'data/email_template.xml',
         'views/account_bank_statement.xml',
         'views/account_move.xml',
         'views/res_currency.xml',
