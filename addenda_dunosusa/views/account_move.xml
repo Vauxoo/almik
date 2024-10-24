@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!--
+    View of the wizard itself that set the values this view need to hold all
+    the help information necessary if needed
+    -->
+    <record id="wizard_dunosusa_view" model="ir.ui.view">
+        <field name="name">x_addenda.dunosusa.view</field>
+        <field name="model">x_addenda.dunosusa</field>
+        <field name="arch" type="xml">
+            <form>
+                <div>
+                    <p>
+                        The necessary nodes for the implementation of the Addenda of Dunosusa
+                    </p>
+                </div>
+                <group>
+                    <group>
+                        <field name="x_additional_ref_code" />
+                        <field name="x_additional_reference" />
+                    </group>
+                    <group>
+                        <field name="x_po_date" />
+                        <field name="x_order_number" />
+                    </group>
+                </group>
+                <group string="Lines">
+                    <field name="x_invoice_line_ids" nolabel="1" colspan="2">
+                        <tree editable="1" create="0" delete="0">
+                            <field name="name" string="Line" readonly="1" />
+                            <field name="x_addenda_supplier_code" />
+                        </tree>
+                    </field>
+                </group>
+
+                <footer>
+                    <button
+                        name="addenda_dunosusa.set_addenda_dunosusa_values"
+                        type="action"
+                        string="Set Values"
+                        class="btn-primary"
+                    />
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!--
+    Simple action view that is called from the invoice to open the wizard
+    After default values are set.
+    -->
+    <record id="action_addenda_dunosusa" model="ir.actions.act_window">
+        <field name="name">Addenda Dunosusa</field>
+        <field name="res_model">x_addenda.dunosusa</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="wizard_dunosusa_view" />
+    </record>
+
+    <!--
+    Action to set default values on the wizard
+    -->
+    <record id="action_addenda_dunosusa_defaults" model="ir.actions.server">
+        <field name="name">Set default values for the addenda Dunosusa</field>
+        <field name="model_id" ref="account.model_account_move" />
+        <field name="state">code</field>
+        <field name="code">
+context = {'invoice_id': record.id,
+           'default_x_invoice_line_ids': record.invoice_line_ids.ids,
+}
+wizard_values = record.x_addenda_dunosusa and record.x_addenda_dunosusa.split('|')
+# If the wizard has been run before, fill it with its previous values
+if wizard_values:
+    context.update({
+        'default_x_additional_ref_code': wizard_values[0],
+        'default_x_po_date': wizard_values[1],
+        'default_x_additional_reference': wizard_values[2],
+        'default_x_order_number': wizard_values[3],
+    })
+
+# Set default values if available as supplier info
+for line in record.invoice_line_ids:
+    supplier_info = line.sudo().product_id.seller_ids.filtered(
+        lambda s:
+        s.partner_id == record.commercial_partner_id
+        and s.product_id == line.product_id
+        and s.sequence == 999)[:1]
+    line.write({
+        'x_addenda_supplier_code': line.x_addenda_supplier_code or supplier_info.product_code,
+    })
+
+action = env["ir.actions.actions"]._for_xml_id("addenda_dunosusa.action_addenda_dunosusa")
+action['context'] = context
+        </field>
+    </record>
+
+    <!--
+    Put a button on the invoice itself in order to set the value for the addenda
+    -->
+    <record id="invoice_addenda_dunosusa" model="ir.ui.view">
+        <field name="name">account.move.form.dunosusa</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="before">
+                <button
+                    name="addenda_dunosusa.action_addenda_dunosusa_defaults"
+                    type="action"
+                    string="Addenda Dunosusa"
+                    context="{'invoice_id': id}"
+                    attrs="{'invisible': ['|', ('state', 'not in', ('draft')), ('move_type', 'not in', ('out_invoice', 'out_refund'))]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

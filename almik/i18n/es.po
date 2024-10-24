@@ -1,0 +1,873 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* almik
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-23 23:58+0000\n"
+"PO-Revision-Date: 2023-08-23 23:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_invoice_document
+msgid ""
+").\n"
+"                        Value received to our entire satisfaction. In case of not paying punctually when due,\n"
+"                        this document will cause late payment interest of 2.5% per month until the total liquidation,\n"
+"                        payable in this City together with the principal."
+msgstr ""
+").\n"
+"                        Valor recibido a nuestra entera satisfacción. En caso de no pagar puntualmente a su vencimiento \n"
+"                        este documento causará intereses moratorios del 2.5% mensual hasta la total liquidación, \n"
+"                        pagadero en esta Ciudad juntamente con el principal."
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_mrporder
+msgid "<strong># Platforms:</strong>"
+msgstr "<strong># Tarimas:</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_delivery_document
+msgid "<strong>Business Advisor</strong>"
+msgstr "<strong>Asesor Comercial</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_payment_receipt_document
+msgid "<strong>CFDI </strong>"
+msgstr ""
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_mrporder
+msgid "<strong>Caliber:</strong>"
+msgstr "<strong>Calibre:</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_payment_receipt_document
+msgid "<strong>Certification Date: </strong>"
+msgstr "<strong>Fecha de Certificación: </strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_delivery_document
+msgid "<strong>Collection</strong>"
+msgstr "<strong>Cobranza</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_delivery_document
+msgid "<strong>Customer Reference: </strong>"
+msgstr "<strong>Referencia Cliente: </strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_invoice_document
+msgid "<strong>Customs Number Month: </strong>"
+msgstr "<strong>Núm. pedimento mes: </strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_delivery_document
+msgid "<strong>Delivery Type: </strong>"
+msgstr "<strong>Tipo Salida: </strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_payment_receipt_document
+msgid "<strong>Emission Date: </strong>"
+msgstr "<strong>Fecha de Emisión: </strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_payment_receipt_document
+msgid "<strong>Emitter Certificate: </strong>"
+msgstr "<strong>Certificado Emisor: </strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_payment_receipt_document
+msgid "<strong>Exchange Rate: </strong>"
+msgstr "<strong>Tipo de Cambio: </strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_invoice_document
+msgid "<strong>Exchange Rate:</strong>"
+msgstr "<strong>Tipo de Cambio:</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_payment_receipt_document
+msgid "<strong>Export: </strong>"
+msgstr "<strong>Exportación: </strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_invoice_document
+msgid "<strong>Fiscal Legend: </strong>"
+msgstr "<strong>Leyenda Fiscal: </strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_invoice_document
+msgid "<strong>Fiscal Regime Receptor:</strong>"
+msgstr "<strong>Régimen Fiscal Receptor:</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_delivery_document
+msgid "<strong>Full Address:</strong>"
+msgstr "<strong>Dirección Completa:</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_delivery_document
+msgid "<strong>Management</strong>"
+msgstr "<strong>Gerencia </strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_mrporder
+msgid "<strong>Name(s):</strong> ______________________________"
+msgstr ""
+"<strong>Nombre(s):</strong> "
+"__________________________________________________________________________________"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_delivery_document
+msgid "<strong>Observations / Instructions:</strong>"
+msgstr "<strong>Observaciones / Instrucciones:</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_payment_receipt_document
+msgid "<strong>Observations: </strong>"
+msgstr "<strong>Observaciones: </strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_invoice_document
+msgid "<strong>Observations:</strong>"
+msgstr "<strong>Observaciones:</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_delivery_document
+msgid "<strong>Observations</strong>"
+msgstr "<strong>Observaciones</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_payment_receipt_document
+msgid "<strong>Payment Receipt: Payment Complement</strong>"
+msgstr "<strong>Recibo de Pago: Complemento de Pago</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_payment_receipt_document
+msgid "<strong>Payment Way:</strong>"
+msgstr "<strong>Forma de Pago:</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_mrporder
+msgid "<strong>Platform Measure:</strong>"
+msgstr "<strong>Medida de la Tarima:</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_mrporder
+msgid "<strong>Production End Date / Time:</strong>"
+msgstr "<strong>Fecha / Hora Fin Producción:</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_mrporder
+msgid "<strong>Production Start Date / Time:</strong>"
+msgstr "<strong>Fecha / Hora Inicio Producción:</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_payment_receipt_document
+msgid "<strong>SAT Certificate: </strong>"
+msgstr "<strong>Certificado SAT: </strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_payment_receipt_document
+msgid "<strong>SAT Folio</strong>"
+msgstr "<strong>Folio SAT</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_delivery_document
+msgid "<strong>Salesperson: </strong>"
+msgstr "<strong>Comercial: </strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_invoice_document
+msgid "<strong>Salesperson:</strong>"
+msgstr "<strong>Comercial:</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:almik.report_purchasequotation_document
+msgid "<strong>Ship To:</strong>"
+msgstr "<strong>Dirección de entrega:</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_mrporder
+msgid "<strong>Total Weight:</strong>"
+msgstr "<strong>Peso Total:</strong>"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_delivery_document
+msgid "<strong>Warehouse</strong>"
+msgstr "<strong>Almacén</strong>"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__account_move__serie__ant
+msgid "ANT"
+msgstr ""
+
+#. module: almik
+#: model:ir.model.fields,help:almik.field_purchase_order__ship_to
+msgid "Adress for shipping"
+msgstr "Dirección para entregar"
+
+#. module: almik
+#: model:res.groups,name:almik.group_allows_internal_transfer
+msgid "Allows internal transfers"
+msgstr "Permite hacer transferencias internas"
+
+#. module: almik
+#: model:ir.module.category,name:almik.module_category_almik
+msgid "Almik"
+msgstr ""
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_payment_receipt_document
+msgid "Bank Name"
+msgstr "Nombre de Banco"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:almik.report_purchasequotation_document
+msgid "Bill To:"
+msgstr "Facturar a:"
+
+#. module: almik
+#: model:res.groups,name:almik.group_invoice_to_draft
+msgid "Billing Set to draft"
+msgstr "Facturación Establecer a borrador"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__box_pcs
+msgid "Box / Pieces"
+msgstr "Caja / Piezas"
+
+#. module: almik
+#: model:res.groups,name:almik.group_inventory_branch_user
+msgid "Branch User"
+msgstr "Usuario Sucursales"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__account_move__serie__cancelled
+msgid "CANCELLED DOCUMENT"
+msgstr "DOCUMENTO CANCELADO"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__account_move__serie__cdf
+msgid "CDF"
+msgstr ""
+
+#. module: almik
+#: model:res.groups,name:almik.group_delete_initiatives_opportunity
+msgid "Can delete Initiatives and Opportunities"
+msgstr "Puede Eliminar Iniciativas y Oportunidades"
+
+#. module: almik
+#: model:res.groups,name:almik.group_can_see_gross_profit_margin
+msgid "Can see Gross Profit Margin"
+msgstr "Puede ver Margen de Utilidad Bruta"
+
+#. module: almik
+#: model:res.groups,name:almik.group_can_see_sale_margin
+msgid "Can see Sale Margin"
+msgstr "Puede ver el Margen de Ventas"
+
+#. module: almik
+#: model:res.groups,name:almik.group_can_see_request_cancellation_button
+msgid "Can see request cancellation button in invoices"
+msgstr "Puede ver el botón de solicitud de cancelación en las facturas"
+
+#. module: almik
+#: model:res.groups,name:almik.group_inventory_adjustment
+msgid "Can validate adjustments and update inventory quantities"
+msgstr "Puede validar ajustes y actualizar cantidades en inventario"
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_account_move_line__cogs_aml_ids
+msgid "Cogs Aml"
+msgstr "Apunte CdV"
+
+#. module: almik
+#: model:ir.model,name:almik.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_account_move_line__cogs
+msgid "Cost of Goods Sold"
+msgstr "Costo de Venta"
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_sale_order__customer_number
+msgid "Customer Number"
+msgstr "Número de Cliente"
+
+#. module: almik
+#: model:ir.model,name:almik.model_product_customerinfo
+msgid "Customer Pricelist"
+msgstr "Tarifa de cliente"
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_res_partner__customs_number_month
+#: model:ir.model.fields,field_description:almik.field_res_users__customs_number_month
+msgid "Customs Number Month"
+msgstr "Núm. pedimento mes"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__account_move__serie__dev
+msgid "DEV"
+msgstr ""
+
+#. module: almik
+#: model:res.groups,name:almik.group_delivery_guide_user
+msgid "Delivery Guide User"
+msgstr "Usuario Carta Porte"
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_sale_order__delivery_type
+msgid "Delivery Type"
+msgstr "Tipo de Entrega"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_payment_receipt_document
+msgid "Document"
+msgstr "Documento"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_payment_receipt_document
+msgid "Exchange Rate D.R"
+msgstr "Tipo de Cambio D.R"
+
+#. module: almik
+#. odoo-python
+#: code:addons/almik/models/crm_lead.py:0
+#, python-format
+msgid "Expected revenue should be different from 0.00"
+msgstr "El Ingreso esperado debe ser diferente de 0.00"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__account_move__serie__fd
+msgid "FD"
+msgstr ""
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__account_move__serie__fdi
+msgid "FDI"
+msgstr ""
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__account_move__serie__fp
+msgid "FP"
+msgstr ""
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__account_move__serie__fpe
+msgid "FPE"
+msgstr ""
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_uom_uom__factor_conversion
+msgid "Factor Conversion"
+msgstr "Factor de conversión"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__ft_pcs
+msgid "Feet / Pieces"
+msgstr "Pies / Piezas"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__ft_ton
+msgid "Feet / Ton"
+msgstr "Pies / Tonelada"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__ft_kg
+msgid "Feet / kg"
+msgstr "Pies / kg"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__sale_order__delivery_type__financial_remission
+msgid "Financial Remission"
+msgstr "Remisión Financiera"
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_res_partner__fiscal_legend
+#: model:ir.model.fields,field_description:almik.field_res_users__fiscal_legend
+msgid "Fiscal Legend"
+msgstr "Leyenda fiscal"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_payment_receipt_document
+msgid "Folio"
+msgstr ""
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_account_move_line__gross_profit_margin
+msgid "Gross Profit Margin"
+msgstr "Margen de Utilidad Bruta"
+
+#. module: almik
+#: model:ir.model.fields,help:almik.field_account_move_line__gross_profit_margin
+msgid "Gross Profit Margin = Sales Revenue - Cost of Goods Sold"
+msgstr "Margen de Utilidad Bruta = Ingresos de Ventas - Costos de Venta"
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_account_move_line__gross_profit_margin_percentage
+msgid "Gross Profit Margin Percentage"
+msgstr "Porcentaje de Margen de Utilidad Bruta"
+
+#. module: almik
+#: model:ir.model.fields,help:almik.field_account_move_line__gross_profit_margin_percentage
+msgid ""
+"Gross Profit Margin Percentage = 100 * (Sales Revenue - Cost of Goods Sold) "
+"/ Sales Revenue"
+msgstr ""
+"Porcentaje de Margen de Utilidad Bruta = 100 * (Ventas - Costo de Venta) / "
+"Ventas"
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_account_move_line__has_gross_profit_margin
+#: model_terms:ir.ui.view,arch_db:almik.view_account_move_line_filter
+msgid "Has Gross Profit Margin"
+msgstr "Tiene Margen de Utilidad Bruta"
+
+#. module: almik
+#: model:ir.model.fields,help:almik.field_uom_uom__factor_conversion
+msgid "Information about equivalencies."
+msgstr "Información sobre las equivalencias"
+
+#. module: almik
+#: model:res.groups,name:almik.group_inventory_purchase_coordinator
+msgid "Inventory: Purchase Coordinator"
+msgstr " Inventario: Coordinador de Compras"
+
+#. module: almik
+#: model:res.groups,name:almik.group_inventory_readonly
+msgid "Inventory: Readonly User"
+msgstr "Inventario: Usuario Sólo Lectura"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_payment_receipt_document
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: almik
+#: model:res.groups,name:almik.group_invoicing
+msgid "Invoicing"
+msgstr "Facturación"
+
+#. module: almik
+#: model:ir.model,name:almik.model_account_move
+msgid "Journal Entry"
+msgstr "Asiento contable"
+
+#. module: almik
+#: model:ir.model,name:almik.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.view_account_move_line_filter
+msgid ""
+"Journal Items is a Revenue and has a Gross Profit Margin computed on it"
+msgstr ""
+"Los apuntes contables que son Ingresos y tienen un Margen de Utilidad Bruta "
+"computada"
+
+#. module: almik
+#: model:res.groups,name:almik.group_contact_creation
+msgid "Lead Creation and Convert to Customer"
+msgstr "Creación de Iniciativas y Convertir a Cliente"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__account_move__serie__md
+msgid "MD"
+msgstr ""
+
+#. module: almik
+#: model:res.groups,name:almik.group_manufacturing_user
+msgid "Manufacturing User"
+msgstr "Usuario Fabricación"
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_sale_order__margin
+#: model:ir.model.fields,field_description:almik.field_sale_order_line__margin
+msgid "Margin"
+msgstr "Margen"
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_sale_order__margin_percent
+#: model:ir.model.fields,field_description:almik.field_sale_order_line__margin_percent
+msgid "Margin (%)"
+msgstr "Margen (%)"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__mt_ft
+msgid "Meter / Feet"
+msgstr "Metro / Pies"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__account_move__serie__ncd
+msgid "NCD"
+msgstr ""
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__account_move__serie__ncg
+msgid "NCG"
+msgstr ""
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__no
+msgid "No Conversion"
+msgstr "Sin conversión"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__sale_order__delivery_type__oc_remission_pending
+msgid "OC Remission Pending"
+msgstr "Remisión OC Pendiente"
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_sale_order__observations
+msgid "Observations"
+msgstr "Observaciones"
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_account_move_line__observations_per_line
+#: model:ir.model.fields,field_description:almik.field_sale_order_line__observations_per_line
+#: model:ir.model.fields,field_description:almik.field_stock_move__observations_per_line
+#: model:ir.model.fields,field_description:almik.field_stock_move_line__observations_per_line
+msgid "Observations Per Line"
+msgstr "Observaciones por partida"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__account_move__serie__pte_can_sat
+msgid "PTE CAN SAT"
+msgstr ""
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_payment_receipt_document
+msgid "Payment Date"
+msgstr "Fecha de Pago"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__pcs_box
+msgid "Pieces / Box"
+msgstr "Piezas / Caja"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__pcs_ea
+msgid "Pieces / EA"
+msgstr "Piezas / EA"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__pcs_ft
+msgid "Pieces / Feet"
+msgstr "Piezas / Pies"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__pcs_mt
+msgid "Pieces / Meter"
+msgstr "Piezas / Metro"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__pcs_roll
+msgid "Pieces / Roll"
+msgstr "Piezas / Rollo"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__pcs_ton
+msgid "Pieces / Ton"
+msgstr "Piezas / Tonelada"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__pcs_kg
+msgid "Pieces / kg"
+msgstr "Piezas / kg"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__pcs_lbs
+msgid "Pieces / lbs"
+msgstr "Piezas / lbs"
+
+#. module: almik
+#. odoo-python
+#: code:addons/almik/models/crm_lead.py:0
+#, python-format
+msgid "Probability should be different from 0.00"
+msgstr "La Probabilidad debe ser diferente de 0.00"
+
+#. module: almik
+#: model:ir.model,name:almik.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr "Movimientos de Producto (Stock Move Line)"
+
+#. module: almik
+#: model:ir.model,name:almik.model_uom_uom
+msgid "Product Unit of Measure"
+msgstr "Unidad de medida del producto"
+
+#. module: almik
+#: model:res.groups,name:almik.group_manufacturing_coordinator
+msgid "Production Coordinator"
+msgstr "Coordinador Producción"
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_uom_uom__product_ids
+msgid "Products"
+msgstr "Productos"
+
+#. module: almik
+#: model:ir.model.fields,help:almik.field_uom_uom__product_ids
+msgid "Products which use this conversion."
+msgstr "Productos que utilizan esta conversión."
+
+#. module: almik
+#: model:ir.model.fields,help:almik.field_account_move_line__has_gross_profit_margin
+msgid ""
+"Provides a technical/functional field to look at the Gross Profit Margin"
+msgstr ""
+"Proporciona un campo técnico/funcional para ver el Margen de Utilidad Bruta"
+
+#. module: almik
+#: model:ir.model,name:almik.model_purchase_order
+msgid "Purchase Order"
+msgstr "Pedido de compra"
+
+#. module: almik
+#: model:res.groups,name:almik.group_purchase_purchase_coordinator
+msgid "Purchase: Purchase Coordinator"
+msgstr "Compras: Coordinador de Compras"
+
+#. module: almik
+#: model:res.groups,name:almik.group_purchase_readonly
+msgid "Purchase: Readonly User"
+msgstr "Compras: Usuario Sólo Lectura"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__account_move__serie__ref
+msgid "REF"
+msgstr ""
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_uom_uom__relation
+msgid "Relation"
+msgstr "Relación"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_delivery_document
+msgid "Remission"
+msgstr "Remisión"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__roll_ft
+msgid "Roll / Feet"
+msgstr "Rollo / Pies"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__roll_pcs
+msgid "Roll / Pieces"
+msgstr "Rollo / Piezas"
+
+#. module: almik
+#: model:res.groups,name:almik.group_sales_invoice
+msgid "Sales Invoices"
+msgstr "Ventas Facturas"
+
+#. module: almik
+#: model:ir.model,name:almik.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: almik
+#: model:ir.model,name:almik.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de pedido de venta"
+
+#. module: almik
+#: model:res.groups,name:almik.group_users_sales_report
+msgid "Sales Reports for Users"
+msgstr "Reportes de Ventas para Usuarios"
+
+#. module: almik
+#: model:res.groups,name:almik.group_sales_user
+msgid "Sales SAC"
+msgstr "Ventas SAC"
+
+#. module: almik
+#: model:res.groups,name:almik.group_sales_supervisor
+msgid "Sales Supervisor"
+msgstr "Supervisor Ventas"
+
+#. module: almik
+#: model:res.groups,name:almik.group_sales_supervisor_purchases_assistant
+msgid "Sales Supervisor and Purchase Assistant"
+msgstr "Supervisor Ventas y Auxiliar Compras"
+
+#. module: almik
+#: model:res.groups,name:almik.group_salesperson_sales_report
+msgid "Salesperson Sales Reports"
+msgstr "Reportes de Ventas Vendedores"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__sale_order__delivery_type__sample_remission
+msgid "Sample Remission"
+msgstr "Remisión Muestra"
+
+#. module: almik
+#: model:res.groups,name:almik.group_view_inventory_adjustment
+msgid "See location \"Inventory adjustment\""
+msgstr "Ver ubicación \"Inventory adjustment\""
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_account_bank_statement_line__serie
+#: model:ir.model.fields,field_description:almik.field_account_move__serie
+#: model:ir.model.fields,field_description:almik.field_account_payment__serie
+msgid "Serie"
+msgstr ""
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_purchase_order__ship_to
+msgid "Ship To"
+msgstr "Dirección de entrega"
+
+#. module: almik
+#: model:ir.model,name:almik.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de inventario"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.sale_order_line_view_form_readonly
+#: model_terms:ir.ui.view,arch_db:almik.view_order_line_tree
+msgid "Sum of Margin"
+msgstr "Suma del Margen"
+
+#. module: almik
+#: model:res.groups,name:almik.group_inventory_supervisor
+msgid "Supervisor User"
+msgstr "Usuario Supervisor"
+
+#. module: almik
+#: model:ir.model.fields,field_description:almik.field_purchase_order__task_id
+msgid "Task"
+msgstr "Tarea"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_saleorder_document
+msgid "The following quotation is for your attention:"
+msgstr "A continuación pongo a su consideración la siguiente cotización:"
+
+#. module: almik
+#: model:ir.model.fields,help:almik.field_uom_uom__relation
+msgid "The two units of measure which are used for conversion."
+msgstr "Las dos unidades de medida que se utilizan para la conversión."
+
+#. module: almik
+#: model:ir.model.fields,help:almik.field_account_move_line__cogs
+msgid ""
+"This is a technical field to store Cost of Goods Sold associated to this "
+"line"
+msgstr ""
+"Este es un campo técnico para almacenar el Costo de Venta asociado a esta "
+"línea"
+
+#. module: almik
+#: model:ir.model.fields,help:almik.field_res_partner__fiscal_legend
+#: model:ir.model.fields,help:almik.field_res_users__fiscal_legend
+msgid ""
+"This is the custom fiscal legend. It takes precedence over the ones "
+"configured in the invoice, but just in the invoice report. The CFDI will "
+"still use the ones in the invoice."
+msgstr ""
+"Esta es la leyenda fiscal personalizada. Tiene prioridad sobre las "
+"configuradas en la factura, pero sólo en el reporte de factura. El CFDI "
+"seguirá utilizando los que están en la factura."
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_saleorder_document
+msgid "Uom"
+msgstr "Udm"
+
+#. module: almik
+#: model:res.groups,name:almik.group_inventory_manager
+msgid "User Editing"
+msgstr "Usuario Editar"
+
+#. module: almik
+#: model:res.groups,name:almik.group_inventory_user
+msgid "User SAC"
+msgstr "Usuario SAC"
+
+#. module: almik
+#: model:res.groups,name:almik.group_delivery_administrator
+msgid "View, Edit and Create Delivery Addresses"
+msgstr "Almik Ver, Editar y Crear Direcciones de entrega"
+
+#. module: almik
+#: model:res.groups,name:almik.group_inventory_coordinator
+msgid "Warehouse Coordinator"
+msgstr "Coordinador Almacén"
+
+#. module: almik
+#: model:res.groups,name:almik.group_inventory_qro_user
+msgid "Warehouse QRO User"
+msgstr "Usuario Almacén QRO"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_invoice_document
+msgid "We owe and will unconditionally pay this Note to the order of"
+msgstr "Debemos y pagaremos incondicionalmente por este Pagaré a la orden de"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_delivery_document
+msgid "______________________________"
+msgstr ""
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_invoice_document
+msgid "in the City of Guadalupe, Nuevo León, on the day"
+msgstr "en la Ciudad de Guadalupe, Nuevo León, el día"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__kg_ea
+msgid "kg / EA"
+msgstr ""
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__kg_mt
+msgid "kg / Meter"
+msgstr "kg / Metro"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__kg_pack
+msgid "kg / Pack"
+msgstr "kg / Paquete"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__kg_pcs
+msgid "kg / Pieces"
+msgstr "kg / Piezas"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__kg_roll
+msgid "kg / Roll"
+msgstr "kg / Rollo"
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__kg_lbs
+msgid "kg / lbs"
+msgstr ""
+
+#. module: almik
+#: model:ir.model.fields.selection,name:almik.selection__uom_uom__relation__lbs_box
+msgid "lbs / Box"
+msgstr "lbs / Caja"
+
+#. module: almik
+#: model_terms:ir.ui.view,arch_db:almik.report_invoice_document
+msgid "to amount of"
+msgstr "a cantidad de"

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_delivery_document" inherit_id="stock.report_delivery_document">
+        <xpath expr="//h2" position="before">
+            <h2 style="text-align: center;">Remission</h2>
+        </xpath>
+        <xpath expr="//h2" position="after">
+            <div class="row mt32 mb32">
+                <div class="col-auto">
+                    <strong>Full Address:</strong>
+                    <div
+                        t-field="o.partner_id.commercial_partner_id"
+                        t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}'
+                    />
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//div[@t-if='o.sudo().sale_id.client_order_ref']" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//table[@name='stock_move_table']" position="before">
+            <div class="row mt32 mb32">
+                <t t-set="sale_order" t-value="o.sale_id" />
+                <div t-if="sale_order.delivery_type" class="col-auto" name="div_delivery_type">
+                    <strong>Delivery Type: </strong>
+                    <p t-field="sale_order.delivery_type" />
+                </div>
+                <div t-if="sale_order.user_id" class="col-auto" name="div_user_id">
+                    <strong>Salesperson: </strong>
+                    <p t-out="sale_order.user_id.name" />
+                </div>
+                <div t-if="o.sudo().sale_id.client_order_ref" class="col-auto" name="div_client_ref">
+                    <strong>Customer Reference: </strong>
+                    <p t-out="sale_order.client_order_ref" />
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//t[@t-if='o.backorder_ids and backorders']" position="after">
+            <div class="row mt24">
+                <div class="col-auto">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr><strong>Observations / Instructions:</strong></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td /></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div name="signatures" class="row mt32 mb32">
+                <div class="col-12 mt24 mb24" style="text-align: right;">
+                    <p class="m-0">______________________________</p>
+                    <strong>Business Advisor</strong>
+                </div>
+            </div>
+            <div name="other_signatures" class="row mt32 mb32">
+                <div class="col-4 mt24 mb24" style="text-align: left;">
+                    <p class="m-0">______________________________</p>
+                    <strong>Management</strong>
+                </div>
+                <div class="col-4 mt24 mb24" style="text-align: center;">
+                    <p class="m-0">______________________________</p>
+                    <strong>Warehouse</strong>
+                </div>
+                <div class="col-4 mt24 mb24" style="text-align: right;">
+                    <p class="m-0">______________________________</p>
+                    <strong>Collection</strong>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//table[@name='stock_move_table']/tbody/tr/td/span[@t-field='move.product_id']" position="before">
+            <t
+                t-set="customer_info"
+                t-value="(
+                    move.product_id.customer_ids
+                    .filtered(lambda x: x.partner_id in (o.partner_id.commercial_partner_id, o.partner_id))[:1]
+                )"
+            />
+            <span t-if="customer_info" t-out="customer_info.get_customer_info_name()" />
+        </xpath>
+        <xpath
+            expr="//table[@name='stock_move_table']/tbody/tr/td/span[@t-field='move.product_id']"
+            position="attributes"
+        >
+            <attribute name="t-if">not customer_info</attribute>
+        </xpath>
+        <xpath expr="//table[@name='stock_move_table']/thead/tr" position="inside">
+            <th name="th_sm_obs_per_line"><strong>Observations</strong></th>
+        </xpath>
+        <xpath expr="//table[@name='stock_move_table']/tbody/tr" position="inside">
+            <td><span t-field="move.observations_per_line" /></td>
+        </xpath>
+        <xpath expr="//table[@name='stock_move_line_table']/thead/tr" position="inside">
+            <th name="th_sml_obs_per_line"><strong>Observations</strong></th>
+        </xpath>
+        <xpath
+            expr="//t[tr[@t-foreach='package_move_lines'] and contains(@t-if, 'has_serial_number')]"
+            position="attributes"
+        >
+            <attribute name="t-if">True or has_serial_number</attribute>
+        </xpath>
+        <xpath expr="//t[tr[@t-foreach='move_lines'] and contains(@t-if, 'has_serial_number')]" position="attributes">
+            <attribute name="t-if">True or has_serial_number</attribute>
+        </xpath>
+        <xpath
+            expr="//t[tr[@t-foreach='o.move_line_ids'] and contains(@t-if, 'has_serial_number')]"
+            position="attributes"
+        >
+            <attribute name="t-if">True or has_serial_number</attribute>
+        </xpath>
+    </template>
+
+    <template
+        id="stock_report_delivery_has_serial_move_line"
+        inherit_id="stock.stock_report_delivery_has_serial_move_line"
+    >
+        <xpath expr="//span[@t-field='move_line.product_id']" position="before">
+            <t
+                t-set="customer_info"
+                t-value="(
+                    move_line.product_id.customer_ids
+                    .filtered(lambda x: x.partner_id in (o.partner_id.commercial_partner_id, o.partner_id))[:1])"
+            />
+            <span t-if="customer_info" t-out="customer_info.get_customer_info_name()" />
+        </xpath>
+        <xpath expr="//span[@t-field='move_line.product_id']" position="attributes">
+            <attribute name="t-if">not customer_info</attribute>
+        </xpath>
+        <xpath expr="//td[@name='move_line_lot_qty_done']" position="after">
+            <td><span t-field="move_line.observations_per_line" /></td>
+        </xpath>
+    </template>
+</odoo>

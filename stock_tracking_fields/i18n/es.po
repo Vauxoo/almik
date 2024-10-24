@@ -1,0 +1,40 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_tracking_fields
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-25 17:31+0000\n"
+"PO-Revision-Date: 2023-05-25 17:31+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_tracking_fields
+#: model:ir.model,name:stock_tracking_fields.model_account_move
+msgid "Journal Entry"
+msgstr "Asiento contable"
+
+#. module: stock_tracking_fields
+#: model:ir.model,name:stock_tracking_fields.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: stock_tracking_fields
+#: model:ir.model.fields,field_description:stock_tracking_fields.field_account_move_line__origin_of_cogs_aml_id
+msgid "Origin Of Cogs Aml"
+msgstr "Apunte Origen del CdV"
+
+#. module: stock_tracking_fields
+#: model:ir.model.fields,help:stock_tracking_fields.field_account_move_line__origin_of_cogs_aml_id
+msgid ""
+"Technical field used to keep track in the originating line of the anglo-"
+"saxon lines."
+msgstr ""
+"Campo técnico usado para seguir el rastro en la línea originaria de las "
+"líneas anglosajonas."

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_move_line_tree_grouped_sales_purchases" model="ir.ui.view">
+        <field name="name">account.move.line.tree.grouped.sales.gross.profit</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree_grouped_sales_purchases" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tax_tag_ids']" position="after">
+                <field name="gross_profit_margin" optional="show" />
+                <field name="gross_profit_margin_percentage" optional="show" />
+                <field name="cogs" optional="hide" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_move_line_filter" model="ir.ui.view">
+        <field name="name">account.move.line.search.sales.gross.profit</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_account_move_line_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='unreconciled']" position="after">
+                <separator />
+                <filter
+                    string="Has Gross Profit Margin"
+                    domain="[('has_gross_profit_margin', '=', True)]"
+                    help="Journal Items is a Revenue and has a Gross Profit Margin computed on it"
+                    name="has_gross_profit_margin"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

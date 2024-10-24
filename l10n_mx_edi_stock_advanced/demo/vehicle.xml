@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="l10n_mx_edi_stock.mx_edi_vehicle" model="l10n_mx_edi.vehicle">
+        <field name="environment_insurer">INSURE CO</field>
+        <field name="environment_insurance_policy">POLICY 78</field>
+    </record>
+</odoo>

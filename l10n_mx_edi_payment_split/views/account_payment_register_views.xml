@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_account_payment_form_multi" model="ir.ui.view">
+        <field name="name">account.split.payment.register.invoices.l10n_mx_edi</field>
+        <field name="model">account.split.payment.register</field>
+        <field name="inherit_id" ref="account_payment_split.view_account_payment_form_multi" />
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='journal_id']" position="after">
+                    <field
+                        name="l10n_mx_edi_payment_method_id"
+                        attrs="{'invisible': [('country_code', '!=', 'MX')], 'required': [('country_code', '=', 'MX')]}"
+                    />
+                    <field name="l10n_mx_edi_show_factoring" invisible="1" />
+                    <field
+                        name="l10n_mx_edi_factoring_id"
+                        attrs="{'invisible':
+                                            [
+                                                '|', ('country_code', '!=', 'MX'),
+                                                '|', ('l10n_mx_edi_show_factoring', '=', False),
+                                                '&amp;', ('payment_type', '!=', 'inbound'),
+                                                ('partner_type', '=', 'customer')
+                                            ]
+                                }"
+                        options="{'no_open': True, 'no_create': True}"
+                    />
+                </xpath>
+            </data>
+            <xpath expr="//group/group/field[@name='payment_method_line_id']" position="after">
+                <field name="l10n_mx_edi_origin" attrs="{'invisible': [('country_code', '!=', 'MX')]}" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

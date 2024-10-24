@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="product_category_test" model="product.category">
+        <field name="name">Test Category: Automatic Valuation</field>
+        <field name="property_valuation">real_time</field>
+    </record>
+
+</odoo>

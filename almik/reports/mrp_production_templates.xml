@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_mrporder" inherit_id="mrp.report_mrporder">
+        <xpath expr="//div[hasclass('page')]" position="inside">
+            <div name="signatures" class="row mt32 mb32">
+                <div class="col-12 mt24 mb24" style="text-align: center;">
+                    <p class="m-0">
+                        <strong>Name(s):</strong> ______________________________
+                    </p>
+                    <table style="border-spacing: 10px; text-align: center; vertical-align: bottom;" width="100%">
+                        <tr height="50px">
+                            <td><br /></td>
+                            <td witdh="25%"><br /></td><td witdh="5%"><br /></td>
+                            <td witdh="25%"><br /></td><td witdh="5%"><br /></td>
+                            <td witdh="25%"><br /></td><td><br /></td>
+                        </tr>
+                        <tr>
+                            <td><br /></td>
+                            <td><strong>Production Start Date / Time:</strong></td><td><br /></td>
+                            <td><strong>Production End Date / Time:</strong></td><td><br /></td>
+                            <td><strong>Total Weight:</strong></td>
+                            <td><br /></td>
+                        </tr>
+                        <tr>
+                            <td><br /></td>
+                            <td style="border: 1px solid black; padding: 15px;" width="150px"><br /><br /></td><td><br
+                                /></td>
+                            <td style="border: 1px solid black; padding: 15px;" width="150px" /><td><br /></td>
+                            <td style="border: 1px solid black; padding: 15px;" width="150px" />
+                            <td><br /></td>
+                        </tr>
+                        <tr height="50px">
+                            <td><br /></td>
+                            <td><br /></td> <td><br /></td> <td><br /></td> <td><br /></td> <td><br /></td>
+                            <td><br /></td>
+                        </tr>
+                        <tr>
+                            <td><br /></td>
+                            <td><strong>Platform Measure:</strong></td><td><br /></td>
+                            <td><strong># Platforms:</strong></td><td><br /></td>
+                            <td><strong>Caliber:</strong></td>
+                            <td><br /></td>
+                        </tr>
+                        <tr>
+                            <td><br /></td>
+                            <td style="border: 1px solid black; padding: 15px;" width="150px"><br /><br /></td><td><br
+                                /></td>
+                            <td style="border: 1px solid black; padding: 15px;" width="150px" /><td><br /></td>
+                            <td style="border: 1px solid black; padding: 15px;" width="150px" />
+                            <td><br /></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

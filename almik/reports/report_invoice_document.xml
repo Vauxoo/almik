@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_invoice_document" priority="20" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[hasclass('page')]/h2/span[@t-field='o.name']" position="before">
+            <t t-set="serie_value" t-value="dict(o._fields['serie'].selection).get(o.serie)" />
+            <span t-if="o.name != '/' and serie_value and serie_value not in o.name" t-out="serie_value" />
+        </xpath>
+        <xpath expr="//div[@name='reference']" position="before">
+            <div class="col-auto col-3 mw-100 mb-2" t-if="o.invoice_user_id" name="salesperson">
+                <strong>Salesperson:</strong>
+                <p class="m-0" t-field="o.invoice_user_id.name" />
+            </div>
+            <div
+                t-if="not o.currency_id.is_current_company_currency"
+                class="col-auto col-3 mw-100 mb-2"
+                name="exchange_rate"
+            >
+                <strong>Exchange Rate:</strong>
+                <p class="m-0" t-field="o.currency_id.inverse_rate" />
+            </div>
+        </xpath>
+
+        <p name="note" position="before">
+            <div t-if="o.partner_id.customs_number_month">
+                <strong>Customs Number Month: </strong>
+                <span t-out="o.partner_id.customs_number_month" />
+            </div>
+        </p>
+
+        <xpath expr="//div[@name='address_not_same_as_shipping']/t[@t-set='address']" position="after">
+            <div t-if="o.partner_id.l10n_mx_edi_fiscal_regime" t-att-class="o_grid_layout">
+                <strong>Fiscal Regime Receptor:</strong>
+                <span t-out="o.partner_id.l10n_mx_edi_fiscal_regime" />
+                <span
+                    t-out="(
+                        dict(
+                            o.partner_id.fields_get(allfields=['l10n_mx_edi_fiscal_regime'])
+                            ['l10n_mx_edi_fiscal_regime']['selection']
+                        )[o.partner_id.l10n_mx_edi_fiscal_regime]
+                    )"
+                />
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@name='address_same_as_shipping']/t[@t-set='address']" position="after">
+            <div t-if="o.partner_id.l10n_mx_edi_fiscal_regime" t-att-class="o_grid_layout">
+                <strong>Fiscal Regime Receptor:</strong>
+                <span t-out="o.partner_id.l10n_mx_edi_fiscal_regime" />
+                <span
+                    t-out="(
+                        dict(
+                            o.partner_id.fields_get(allfields=['l10n_mx_edi_fiscal_regime'])
+                            ['l10n_mx_edi_fiscal_regime']['selection']
+                        )[o.partner_id.l10n_mx_edi_fiscal_regime]
+                    )"
+                />
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@name='no_shipping']/t[@t-set='address']" position="after">
+            <div t-if="o.partner_id.l10n_mx_edi_fiscal_regime" t-att-class="o_grid_layout">
+                <strong>Fiscal Regime Receptor:</strong>
+                <span t-out="o.partner_id.l10n_mx_edi_fiscal_regime" />
+                <span
+                    t-out="(
+                        dict(
+                            o.partner_id.fields_get(allfields=['l10n_mx_edi_fiscal_regime'])
+                            ['l10n_mx_edi_fiscal_regime']['selection']
+                        )[o.partner_id.l10n_mx_edi_fiscal_regime]
+                    )"
+                />
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@id='qrcode']" position="after">
+            <div class="row" style="font-size:14px;">
+                <div class="col-12">
+                    <p>
+                        We owe and will unconditionally pay this Note to the order of
+                        <span t-out="o.company_id.name" />
+                        in the City of Guadalupe, Nuevo León, on the day
+                        <span t-out="o.invoice_date_due" />
+                        to amount of
+                        <span t-out="o.currency_id.amount_to_text(o.amount_total)" />
+                        (<span t-field="o.amount_total" />).
+                        Value received to our entire satisfaction. In case of not paying punctually when due,
+                        this document will cause late payment interest of 2.5% per month until the total liquidation,
+                        payable in this City together with the principal.
+                    </p>
+                </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@name='shipping_address_block']" position="after">
+            <t
+                t-set="so"
+                t-value="(
+                    request.env['sale.order'].search(
+                        [('invoice_ids', '=', o.id), ('observations', '!=', False)],
+                        limit=1,
+                    )
+                )"
+            />
+            <div t-if="so">
+                <strong>Observations:</strong>
+                <span t-out="so.observations" />
+            </div>
+        </xpath>
+
+        <xpath expr="//div[contains(@t-if,'o.l10n_mx_edi_legend_ids')]" position="attributes">
+            <attribute name="t-if">o.l10n_mx_edi_legend_ids and not o.partner_id.fiscal_legend</attribute>
+        </xpath>
+
+        <xpath expr="//p[@name='note']" position="before">
+            <div t-if="o.partner_id.fiscal_legend" style="font-size:10px">
+                <strong>Fiscal Legend: </strong>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" style="padding-bottom: 5px; padding-top: 0px;">
+                        <span t-out="o.partner_id.fiscal_legend" />
+                    </li>
+                </ul>
+            </div>
+        </xpath>
+    </template>
+</odoo>

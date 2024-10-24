@@ -1,0 +1,258 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_mx_edi_stock_advanced
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-21 19:53+0000\n"
+"PO-Revision-Date: 2023-08-21 19:53+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_dangerous_sat_code__active
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_packaging_sat_code__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,help:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_dangerous_sat_code__class_div
+msgid "Clase o div. Type of danger according SAT catalog."
+msgstr "Clase o Div. Tipo de peligro acorde al catálogo del SAT"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_dangerous_sat_code__class_div
+msgid "Class Div"
+msgstr "Clase Div"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_dangerous_sat_code__code
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_packaging_sat_code__code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_dangerous_sat_code__create_uid
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_packaging_sat_code__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_dangerous_sat_code__create_date
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_packaging_sat_code__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_product_product__l10n_mx_edi_dangerous_sat_id
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_product_template__l10n_mx_edi_dangerous_sat_id
+msgid "Dangerous SAT Code"
+msgstr "Clave del SAT material peligroso"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_dangerous_sat_code__display_name
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_packaging_sat_code__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_vehicle__environmental_insurer
+msgid "Environmental insurance Company"
+msgstr "Aseguradora del seguro ambiental"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_vehicle__environmental_insurance_policy
+msgid "Environmental insurance Policy Number"
+msgstr "Número de póliza de ambiental"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_dangerous_sat_code__id
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_packaging_sat_code__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,help:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_dangerous_sat_code__active
+#: model:ir.model.fields,help:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_packaging_sat_code__active
+msgid "If this record is not active, this cannot be selected."
+msgstr "Si este registro no está activado, éste no puede seleccionarse."
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,help:l10n_mx_edi_stock_advanced.field_product_unspsc_code__l10n_mx_edi_dangerous_material
+msgid ""
+"Indicates if this product type is dangerous according the sat catalog for "
+"carta porte. If the the product code is dangerous, the dangerous type should"
+" be specified in the product template. When the product is marked as could "
+"or not be dangerous, the CFDI will send No at MaterialPeligroso if the "
+"dangerous code is not specified in the product."
+msgstr ""
+"Indica si este tipo de producto es peligroso según el catálogo SAT para "
+"carta porte. Si el código del producto es peligroso, se debe especificar el "
+"tipo de peligro en la plantilla del producto. Cuando el producto esté "
+"marcado como: podría o no ser peligroso, el CFDI enviará un No a "
+"MaterialPeligroso si el código de peligro no está especificado en el "
+"producto."
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_product_unspsc_code__l10n_mx_edi_dangerous_material
+msgid "Is dangerous material?"
+msgstr "¿Es material peligroso?"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_dangerous_sat_code____last_update
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_packaging_sat_code____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_dangerous_sat_code__write_uid
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_packaging_sat_code__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_dangerous_sat_code__write_date
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_packaging_sat_code__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model,name:l10n_mx_edi_stock_advanced.model_l10n_mx_edi_vehicle
+msgid "MX EDI Vehicle"
+msgstr "Vehículo"
+
+#. module: l10n_mx_edi_stock_advanced
+#. odoo-python
+#: code:addons/l10n_mx_edi_stock_advanced/models/product.py:0
+#: model:ir.model.fields.selection,name:l10n_mx_edi_stock_advanced.selection__product_unspsc_code__l10n_mx_edi_dangerous_material__1
+#, python-format
+msgid "Material dangerous"
+msgstr "Material peligroso"
+
+#. module: l10n_mx_edi_stock_advanced
+#. odoo-python
+#: code:addons/l10n_mx_edi_stock_advanced/models/product.py:0
+#: model:ir.model.fields.selection,name:l10n_mx_edi_stock_advanced.selection__product_unspsc_code__l10n_mx_edi_dangerous_material__01
+#, python-format
+msgid "Material that could or not be dangerous"
+msgstr "Material que podría o no ser peligroso"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_dangerous_sat_code__name
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_packaging_sat_code__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,help:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_packaging_sat_code__name
+msgid "Name defined by SAT catalog to this packing"
+msgstr "Nombre definido por el catálogo del SAT para este embalaje"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,help:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_dangerous_sat_code__name
+msgid "Name defined by SAT catalog to this product"
+msgstr "Nombre definido por el catálogo del SAT para este producto"
+
+#. module: l10n_mx_edi_stock_advanced
+#. odoo-python
+#: code:addons/l10n_mx_edi_stock_advanced/models/product.py:0
+#: model:ir.model.fields.selection,name:l10n_mx_edi_stock_advanced.selection__product_unspsc_code__l10n_mx_edi_dangerous_material__0
+#, python-format
+msgid "Non-dangerous material"
+msgstr "Material no peligroso"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_product_product__l10n_mx_edi_packaging_description
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_product_template__l10n_mx_edi_packaging_description
+msgid "Packaging Decription"
+msgstr "Descripción del embalaje"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_product_product__l10n_mx_edi_packaging_sat_id
+#: model:ir.model.fields,field_description:l10n_mx_edi_stock_advanced.field_product_template__l10n_mx_edi_packaging_sat_id
+msgid "Packaging SAT Code"
+msgstr "Clave del SAT del tipo de embalaje"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model,name:l10n_mx_edi_stock_advanced.model_product_template
+msgid "Product"
+msgstr "Producto"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model,name:l10n_mx_edi_stock_advanced.model_product_unspsc_code
+msgid "Product and UOM Codes from UNSPSC"
+msgstr ""
+"Códigos de producto y unidad de medida provienen del Código de Productos y "
+"Servicios Estándar de las Naciones Unidas (UNSPSC)"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model,name:l10n_mx_edi_stock_advanced.model_l10n_mx_edi_product_dangerous_sat_code
+msgid "Product dangerous Codes from carta porte SAT Data."
+msgstr "Códigos de productos peligrosos de carta porte SAT Data."
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model,name:l10n_mx_edi_stock_advanced.model_l10n_mx_edi_product_packaging_sat_code
+msgid "Product packaging Codes from carta porte SAT Data."
+msgstr "Código de embalaje de producto de carta porte"
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,help:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_vehicle__environmental_insurer
+msgid ""
+"The name of the insurer that covers the environmental risks of the vehicle"
+msgstr ""
+"El nombre de la aseguradora que cubre los riesgos ambientales del vehículo."
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,help:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_packaging_sat_code__code
+msgid ""
+"This value is required in CFDI version 3.3 to express the SAT code of the "
+"packaging that will be used for this dangerous product."
+msgstr ""
+"Este valor es requerido en CFDI versión 3.3 para expresar el código SAT del "
+"empaque que se utilizará para este peligroso producto."
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,help:l10n_mx_edi_stock_advanced.field_l10n_mx_edi_product_dangerous_sat_code__code
+msgid ""
+"This value is required in CFDI version 3.3 to express the code of a product "
+"or service consider as dangerous by the SAT, used a key from SAT catalog."
+msgstr ""
+"Este valor es requerido en el CFDI versión 3.3 para expresar el código de un"
+" producto o servicio considerado peligroso por el SAT, se utiliza una clave "
+"del catálogo SAT."
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,help:l10n_mx_edi_stock_advanced.field_product_product__l10n_mx_edi_dangerous_sat_id
+#: model:ir.model.fields,help:l10n_mx_edi_stock_advanced.field_product_template__l10n_mx_edi_dangerous_sat_id
+msgid ""
+"This value will be used in the CFDI for carta porte to express the danger "
+"type if the product is dangerous."
+msgstr ""
+"Este valor se utilizará en el CFDI de carta porte para expresar el tipo de "
+"peligro si el producto es peligroso."
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,help:l10n_mx_edi_stock_advanced.field_product_product__l10n_mx_edi_packaging_description
+#: model:ir.model.fields,help:l10n_mx_edi_stock_advanced.field_product_template__l10n_mx_edi_packaging_description
+msgid ""
+"This value will be used in the CFDI for carta porte to express the "
+"descripcion of the packaging of the product if is dangerous."
+msgstr ""
+"Este valor se utilizará en el CFDI de carta porte para expresar la "
+"descripción del empaque del producto si es el mismo es peligroso."
+
+#. module: l10n_mx_edi_stock_advanced
+#: model:ir.model.fields,help:l10n_mx_edi_stock_advanced.field_product_product__l10n_mx_edi_packaging_sat_id
+#: model:ir.model.fields,help:l10n_mx_edi_stock_advanced.field_product_template__l10n_mx_edi_packaging_sat_id
+msgid ""
+"This value will be used in the CFDI for carta porte to express the packaging"
+" type that will be used if the product is dangerous."
+msgstr ""
+"Este valor se utilizará en el CFDI de carta porte para expresar el tipo de "
+"empaque que se utilizará si el producto es peligroso."

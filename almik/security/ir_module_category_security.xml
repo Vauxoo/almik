@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="module_category_almik" model="ir.module.category">
+        <field name="name">Almik</field>
+    </record>
+</odoo>

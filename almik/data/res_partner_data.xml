@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+
+    <record id="data_res_partner_invoice_address_almik" model="res.partner">
+        <field name="type">invoice</field>
+        <field name="parent_id" ref="base.main_partner" />
+        <field name="street">Camino Río la Silla 2800</field>
+        <field name="city">Guadalupe</field>
+        <field name="state_id" ref="base.state_mx_nl" />
+        <field name="country_id" ref="base.mx" />
+        <field name="zip">67188</field>
+        <field name="phone">+52.81.4444.7250</field>
+        <field name="email">info@almik.com.mx</field>
+    </record>
+
+</odoo>
