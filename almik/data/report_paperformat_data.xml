@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="paperformat_sale_order_reports_almik" model="report.paperformat">
+        <field name="name">Sale Order Paperformat</field>
+        <field name="default" eval="True" />
+        <field name="orientation">Portrait</field>
+        <field name="margin_top" eval="40" />
+        <field name="margin_bottom" eval="20" />
+        <field name="dpi" eval="105" />
+    </record>
+</odoo>

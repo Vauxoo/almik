@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.almik</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='effective_date']" position="after">
+                <field name="delivery_type" />
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='price_subtotal']" position="after">
+                <field name="observations_per_line" />
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="customer_number" />
+            </xpath>
+            <xpath
+                expr="//group[@name='sale_header']/group[@name='order_details']/div[@groups='product.group_product_pricelist']"
+                position="after"
+            >
+                <field name="observations" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

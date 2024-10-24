@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<cfdi:Addenda xmlns:cfdi="http://www.sat.gob.mx/cfd/4" xmlns:mmmcfdi="http://mmm.com/CDFI">
+    <eu:AddendaEU
+        xmlns:eu="http://factura.envasesuniversales.com/addenda/eu"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://factura.envasesuniversales.com/addenda/eu http://factura.envasesuniversales.com/addenda/eu/EU_Addenda.xsd"
+    >
+        <eu:TipoFactura>
+            <eu:IdFactura>Factura</eu:IdFactura>
+            <eu:Version>1.0</eu:Version>
+            <eu:FechaMensaje>--date--</eu:FechaMensaje>
+        </eu:TipoFactura>
+        <eu:TipoTransaccion>
+            <eu:IdTransaccion>Con_Pedido</eu:IdTransaccion>
+            <eu:Transaccion>--folio--</eu:Transaccion>
+        </eu:TipoTransaccion>
+        <eu:OrdenesCompra>
+            <eu:Secuencia consec="1">
+                <eu:IdPedido>PO456</eu:IdPedido>
+                <eu:EntradaAlmacen>
+                    <eu:Albaran>12345</eu:Albaran>
+                </eu:EntradaAlmacen>
+            </eu:Secuencia>
+        </eu:OrdenesCompra>
+        <eu:Moneda>
+            <eu:MonedaCve>MXN</eu:MonedaCve>
+            <eu:TipoCambio>1.000000</eu:TipoCambio>
+            <eu:SubtotalM>450.0</eu:SubtotalM>
+            <eu:TotalM>477.0</eu:TotalM>
+            <eu:ImpuestoM>72.00</eu:ImpuestoM>
+        </eu:Moneda>
+    </eu:AddendaEU>
+</cfdi:Addenda>

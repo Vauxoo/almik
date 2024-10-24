@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.almik.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <field name="l10n_mx_edi_legend_ids" position="before">
+                <field name="customs_number_month" />
+                <field name="fiscal_legend" />
+            </field>
+        </field>
+    </record>
+</odoo>

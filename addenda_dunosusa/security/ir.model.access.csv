@@ -1,0 +1,2 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_x_addenda_dunosusa,access_x_addenda_dunosusa,addenda_dunosusa.wizard_dunosusa,base.group_user,1,1,1,1

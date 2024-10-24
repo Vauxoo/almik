@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_saleorder_document" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//t[@t-set='information_block']" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//t[@t-set='address']" position="after">
+            <t t-set="is_quotation" t-value="doc.state in ['draft', 'sent']" />
+            <t t-if="is_quotation" t-set="address_quotation" t-value="address" />
+            <t t-if="is_quotation" t-set="address" t-value="False" />
+        </xpath>
+        <xpath expr="//t[@t-set='address']" position="before">
+            <t t-set="sale_sent" t-value="doc.state in ['draft', 'sent']" />
+        </xpath>
+        <xpath expr="//t[@t-set='display_discount']" position="before">
+            <t t-esc="address_quotation" />
+            <span t-if="is_quotation">The following quotation is for your attention:</span><br /><br />
+        </xpath>
+        <xpath expr="//span[@t-field='line.product_uom']" position="attributes">
+            <attribute name="t-if">is_quotation</attribute>
+        </xpath>
+        <xpath expr="//th[@name='th_quantity']" position="after">
+            <th name="th_uom" class="text-right" t-if="is_quotation">Uom</th>
+        </xpath>
+        <xpath expr="//td[@name='td_quantity']" position="after">
+            <td name="td_uom" class="text-right" t-if="is_quotation">
+                <span t-field="line.product_uom" groups="uom.group_uom" />
+            </td>
+        </xpath>
+        <xpath expr="//th[@name='th_taxes']" position="attributes">
+            <attribute name="t-if">not is_quotation</attribute>
+        </xpath>
+        <xpath expr="//td[@name='td_taxes']" position="attributes">
+            <attribute name="t-if">not is_quotation</attribute>
+        </xpath>
+    </template>
+
+    <record id="sale.action_report_saleorder" model="ir.actions.report">
+        <field name="paperformat_id" ref="paperformat_sale_order_reports_almik" />
+    </record>
+</odoo>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!--This is the addenda-->
+    <template id="envases" name="Envases">
+        <t
+            t-set="cfdi_values"
+            t-value="record.env['account.edi.format']._l10n_mx_edi_get_invoice_cfdi_values(record)"
+        />
+        <t t-set="values" t-value="record.x_addenda_envases.split('|') if record.x_addenda_envases else False" />
+        <eu:AddendaEU
+            xmlns:eu="http://factura.envasesuniversales.com/addenda/eu"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://factura.envasesuniversales.com/addenda/eu http://factura.envasesuniversales.com/addenda/eu/EU_Addenda.xsd"
+        >
+            <eu:TipoFactura>
+                <eu:IdFactura>Factura</eu:IdFactura>
+                <eu:Version>1.0</eu:Version>
+                <eu:FechaMensaje t-esc="record.invoice_date" />
+            </eu:TipoFactura>
+            <eu:TipoTransaccion>
+                <eu:IdTransaccion>Con_Pedido</eu:IdTransaccion>
+                <eu:Transaccion
+                    t-esc="'2%s' % values[1].split('/')[-1].zfill(9) if values and len(values) >= 2 else cfdi_values['format_string'](cfdi_values.get('folio_number', 40))"
+                />
+            </eu:TipoTransaccion>
+            <eu:OrdenesCompra>
+                <eu:Secuencia consec="1">
+                    <eu:IdPedido t-out="record.ref or ''" />
+                    <eu:EntradaAlmacen>
+                        <eu:Albaran t-out="values[0] if values else ''" />
+                    </eu:EntradaAlmacen>
+                </eu:Secuencia>
+            </eu:OrdenesCompra>
+            <eu:Moneda>
+                <eu:MonedaCve t-esc="record.currency_id.name" />
+                <eu:TipoCambio
+                    t-esc="cfdi_values['format_float'](cfdi_values['currency_conversion_rate'], 6) or '1.000000'"
+                />
+                <eu:SubtotalM t-esc="record.amount_untaxed" />
+                <eu:TotalM t-esc="record.amount_total" />
+                <eu:ImpuestoM
+                    t-esc="cfdi_values['format_float'](
+                        cfdi_values['tax_details_transferred']['tax_amount_currency'],
+                        cfdi_values['currency_precision']
+                    ) if cfdi_values.get('tax_details_transferred') and cfdi_values.get('tax_details_transferred').get('tax_details') else ''"
+                />
+            </eu:Moneda>
+        </eu:AddendaEU>
+    </template>
+    <record id="envases" model="ir.ui.view">
+        <field name="l10n_mx_edi_addenda_flag">True</field>
+    </record>
+
+    <!--Wizard to set elements-->
+    <record id="wizard_envases" model="ir.model">
+        <field name="name">Addenda Envases</field>
+        <field name="transient" eval="True" />
+        <field name="model">x_addenda.envases</field>
+        <field name="info">Addenda Envases documentation</field>
+    </record>
+
+    <!--Fields on the wizard-->
+    <record id="wizard_envases_incoming_code" model="ir.model.fields">
+        <field name="name">x_incoming_code</field>
+        <field name="field_description">Incoming Code</field>
+        <field name="ttype">char</field>
+        <field
+            name="help"
+        >The code given to the product when it arrives at stock location. This code is provided by the customer.</field>
+        <field name="model_id" ref="wizard_envases" />
+    </record>
+
+    <record id="wizard_envases_idtransaccion" model="ir.model.fields">
+        <field name="name">x_idtransaccion</field>
+        <field name="field_description">Inventory Exit Code</field>
+        <field name="ttype">char</field>
+        <field
+            name="help"
+        >The inventory exit code, must be formatted "TEXT/TEXT/NUMBER". The "NUMBER" part will be filled with zeros and prepend a "2". For example for the value "MAZ/OUT/00657", the final code will be "2000000657". If not code is entered the invoice number will be used instead. This code is provided by the customer.</field>
+        <field name="model_id" ref="wizard_envases" />
+    </record>
+
+    <!--Fields in invoice-->
+    <record id="invoice_envases_field" model="ir.model.fields">
+        <field name="name">x_addenda_envases</field>
+        <field name="field_description">Addenda Envases</field>
+        <field name="ttype">char</field>
+        <field name="help">Used to store wizard fields</field>
+        <field name="model_id" model="ir.model" search="[('model', '=', 'account.move')]" />
+    </record>
+
+    <!--Server action that will set the values on the invoice.-->
+    <record id="set_addenda_envases_values" model="ir.actions.server">
+        <field name="name">Set Values for Addenda Envases</field>
+        <field name="model_id" ref="account.model_account_move" />
+        <field name="state">code</field>
+        <field name="code">
+invoice = env['account.move'].browse(env.context['invoice_id'])
+wizard = env['x_addenda.envases'].browse(env.context['active_id'])
+wizard_fields = [wizard.x_incoming_code, wizard.x_idtransaccion]
+wizard_fields = [field for field in wizard_fields if field]
+invoice.write({'x_addenda_envases': '|'.join(wizard_fields)})
+        </field>
+    </record>
+
+</odoo>

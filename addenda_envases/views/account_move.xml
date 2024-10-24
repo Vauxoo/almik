@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!--
+    View of the wizard itself that set the values. This view needs to hold all
+    the required help information
+    -->
+    <record id="wizard_envases_view" model="ir.ui.view">
+        <field name="name">x_addenda.envases.view</field>
+        <field name="model">x_addenda.envases</field>
+        <field name="arch" type="xml">
+            <form>
+                <div>
+                    <p>
+                        The necessary nodes for the implementation of the Addenda of Envases Universales de México, S.A.P.I. de C.V. are:
+                    </p>
+                    <ul>
+                        <li>
+                            <p><b>Incoming Code:</b></p>
+                            <p
+                            >The code given to the product when it arrives at stock location. This code is provided by the customer.</p>
+                        </li>
+                        <li>
+                            <p><b>Purchase Order:</b></p>
+                            <p
+                            >The number of the customer's purchase order. This value is taken from the invoice's field "Reference/Description".</p>
+                        </li>
+                        <li>
+                            <p><b>Inventory Exit Code (optional):</b></p>
+                            <p
+                            >The inventory exit code, must be formatted "TEXT/TEXT/NUMBER". The "NUMBER" part will be filled with zeros and prepend a "2". For example for the value "MAZ/OUT/00657", the final code will be "2000000657". If not code is entered the invoice number will be used instead. This code is provided by the customer.</p>
+                        </li>
+                    </ul>
+                </div>
+                <group>
+                    <field name="x_incoming_code" />
+                    <field name="x_idtransaccion" />
+                </group>
+                <footer>
+                    <button
+                        string="Set Values"
+                        name="addenda_envases.set_addenda_envases_values"
+                        type="action"
+                        class="btn-primary"
+                    />
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!--
+    Simple action view that is called from the invoice to open the wizard
+    After default values are set.
+    -->
+    <record id="action_addenda_envases" model="ir.actions.act_window">
+        <field name="name">Addenda Envases</field>
+        <field name="res_model">x_addenda.envases</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_envases_view" />
+        <field name="target">new</field>
+    </record>
+
+    <!--
+    Action to set default values on the wizard
+    -->
+    <record id="action_addenda_envases_defaults" model="ir.actions.server">
+        <field name="name">Set default values for the addenda Envases</field>
+        <field name="model_id" ref="account.model_account_move" />
+        <field name="state">code</field>
+        <field name="code">
+context = {
+    'invoice_id': record.id,
+}
+wizard_values = record.x_addenda_envases and record.x_addenda_envases.split('|')
+if wizard_values:
+    context.update({
+        'default_x_incoming_code': wizard_values[0],
+        'default_x_idtransaccion': len(wizard_values) > 1 and wizard_values[1],
+    })
+
+# In odoo#d5c1649239 this method (`_for_xml_id`) was introduced as a secure
+# way of doing `.sudo().read()[0]`
+action = env['ir.actions.actions']._for_xml_id('addenda_envases.action_addenda_envases')
+action['context'] = context
+        </field>
+    </record>
+
+    <!--
+    Put a button on the invoice itself in order to set the value for the addenda
+    -->
+    <record id="invoice_addenda_envases" model="ir.ui.view">
+        <field name="name">account.move.form.envases</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="before">
+                <button
+                    name="addenda_envases.action_addenda_envases_defaults"
+                    type="action"
+                    string="Addenda Envases"
+                    attrs="{'invisible': ['|', ('state', 'not in', ('draft')), ('move_type', 'not in', ('out_invoice', 'out_refund'))]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

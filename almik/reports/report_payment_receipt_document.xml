@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_payment_receipt_document" inherit_id="account.report_payment_receipt_document">
+        <!-- Fiscal Information and name -->
+        <xpath expr="//div[hasclass('page')]/h3" position="attributes">
+            <attribute name="t-if">0</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('page')]/h3" position="after">
+
+            <div name="fiscal_folio" class="load-more" t-if="o.l10n_mx_edi_cfdi_uuid">
+            <table align="right" style="text-border:0px; border-collapse: collapse;">
+                <tbody>
+                <tr>
+                    <td><strong>CFDI </strong><span t-out="cfdi_vals['cfdi_node'].get('Version')" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-center"><strong>SAT Folio</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><span t-out="cfdi_vals.get('certificate_number')" /></td>
+                </tr>
+                <tr>
+                    <td><strong>Emission Date: </strong></td>
+                    <td class="text-right"><span t-out="cfdi_vals.get('emission_date_str')" /></td>
+                </tr>
+                <tr>
+                    <td><strong>Certification Date: </strong></td>
+                    <td class="text-right"><span t-out="cfdi_vals.get('stamp_date')" /></td>
+                </tr>
+                <tr>
+                    <td><strong>Emitter Certificate: </strong></td>
+                    <td class="text-right"><span t-out="cfdi_vals.get('certificate_number')" /></td>
+                </tr>
+                <tr>
+                    <td><strong>SAT Certificate: </strong></td>
+                    <td class="text-right"><span t-out="cfdi_vals.get('certificate_sat_number')" /></td>
+                </tr>
+                <tr>
+                    <td><strong>Export: </strong></td>
+                    <td class="text-left"><span t-out="cfdi_vals['cfdi_node'].get('Exportacion')" /></td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+            <h3><strong>Payment Receipt: Payment Complement</strong></h3>
+        </xpath>
+
+        <!-- Memo -->
+        <xpath expr="//div[@t-if='o.ref']" position="attributes">
+            <attribute name="t-if">0</attribute>
+            <attribute name="name">div_ref</attribute>
+        </xpath>
+        <xpath expr="//div[@name='div_ref']" position="before">
+            <div class="col-6" t-if="o.ref">
+                <strong>Observations: </strong> <span t-field="o.ref" />
+            </div>
+        </xpath>
+
+        <!-- Customer RFC -->
+        <xpath expr="//div[@t-if='o.partner_type']/.." position="after">
+            <div class="row">
+                <div t-if="o.partner_id.vat" class="col-6">
+                    <strong t-out="'%s:' % (o.company_id.country_id.vat_label or 'Tax ID')" />
+                    <span t-field="o.partner_id.vat" />
+                </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@t-if='o.ref']/.." position="after">
+            <div class="row">
+                <t t-set="cfdi_node" t-value="cfdi_vals.get('cfdi_node')" />
+                <t t-set="exchange_rate" t-value="cfdi_node.get('TipoCambioP', '') if cfdi_node else None" />
+                <div class="col-6" t-if="exchange_rate is not None">
+                    <strong>Exchange Rate: </strong><span t-out="exchange_rate" />
+                </div>
+                <div class="col-6" t-if="o.l10n_mx_edi_cfdi_uuid and o.l10n_mx_edi_payment_method_id">
+                    <strong>Payment Way:</strong>
+                    <span
+                        t-out="' - '.join([o.l10n_mx_edi_payment_method_id.code, o.l10n_mx_edi_payment_method_id.name])"
+                    />
+                </div>
+            </div>
+        </xpath>
+
+        <!-- Name bank account (beneficiary) -->
+        <xpath expr="//table/thead/tr/th[@t-if='acc_re']" position="after">
+            <th t-if="acc_re">Bank Name</th>
+        </xpath>
+        <xpath expr="//table/tbody/tr/td[@t-if='acc_re']" position="after">
+            <t
+                t-set="acc_re_bank_name"
+                t-value="env['res.partner.bank'].search([('acc_number', '=ilike', acc_re)], limit=1)"
+            />
+            <td t-if="acc_re and acc_re_bank_name"><span t-out="acc_re_bank_name.bank_id.name" /></td>
+        </xpath>
+
+        <!-- Remove uuid column -->
+        <xpath expr="//table[2]/thead/tr/th[2]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//table[2]/tbody/tr/td/span[@t-esc=&quot;inv.get('IdDocumento')&quot;]/.." position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+
+        <!-- Remove Partiality column -->
+        <xpath expr="//table[2]/thead/tr/th[3]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath
+            expr="//table[2]/tbody/tr/td/span[@t-esc=&quot;inv.get('NumParcialidad', '')&quot;]/.."
+            position="attributes"
+        >
+            <attribute name="t-if">False</attribute>
+        </xpath>
+
+        <!-- Add information to invoice details -->
+        <!-- Add invoice id before the date -->
+        <xpath expr="//table[2]/thead/tr/th[1]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//table[2]/thead/tr/th[1]" position="before">
+            <th name="th_uuid_invoice_id">Folio</th>
+        </xpath>
+        <xpath expr="//table[2]/tbody/tr/td[1]" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//table[2]/tbody/tr/td[1]" position="after">
+            <t
+                t-set="invoice"
+                t-value="o.reconciled_invoice_ids.filtered(lambda i: i.l10n_mx_edi_cfdi_uuid == inv.get('IdDocumento'))"
+            />
+            <t
+                t-set="folio"
+                t-value="invoice.name if invoice.serie in invoice.name else invoice.serie + invoice.name"
+            />
+            <td><span t-out="folio" /></td>
+            <td name="td_uuid_invoice_id"><span t-out="invoice.name" /></td>
+        </xpath>
+
+        <!-- Add payment date after invoice id -->
+        <xpath expr="//th[@name='th_uuid_invoice_id']" position="after">
+            <th name="th_uuid_payment_date">Payment Date</th>
+        </xpath>
+        <xpath expr="//td[@name='td_uuid_invoice_id']" position="after">
+            <td name="td_uuid_payment_date"><span t-field="o.date" /></td>
+        </xpath>
+
+        <!-- Add document type after payment date -->
+        <xpath expr="//th[@name='th_uuid_payment_date']" position="after">
+            <th name="th_uuid_document_type">Document</th>
+        </xpath>
+        <xpath expr="//td[@name='td_uuid_payment_date']" position="after">
+            <td name="td_uuid_document_type">Invoice</td>
+        </xpath>
+
+        <!-- Add exchange rate after document type -->
+        <xpath expr="//th[@name='th_uuid_document_type']" position="after">
+            <th>Exchange Rate D.R</th>
+        </xpath>
+        <xpath expr="//td[@name='td_uuid_document_type']" position="after">
+            <t t-set="invoice_rate" t-value="inv.get('TipoCambio', '')" />
+            <td><span t-out="invoice_rate if invoice_rate != '1' else ''" /></td>
+        </xpath>
+
+        <xpath
+            expr="//t/div[@id='complement']//span[@t-esc=&quot;cfdi_vals.get('certificate_number')&quot;]/.."
+            position="attributes"
+        >
+            <attribute name="style">font-size: 15px;</attribute>
+        </xpath>
+    </template>
+</odoo>

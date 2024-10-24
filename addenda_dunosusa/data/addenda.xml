@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--This is the addenda-->
+    <template id="dunosusa" name="Dunosusa">
+        <t t-set="values" t-value="record.env['account.edi.format']._l10n_mx_edi_get_invoice_cfdi_values(record)" />
+        <t
+            t-set="extra_values"
+            t-value="record.x_addenda_dunosusa.split('|') if record.x_addenda_dunosusa else ['', '', '', '']"
+        />
+        <requestForPayment
+            type="SimpleInvoiceType"
+            contentVersion="1.3.1"
+            documentStructureVersion="AMC7.1"
+            documentStatus="ORIGINAL"
+            t-att-DeliveryDate="record.invoice_date"
+        >
+            <requestForPaymentIdentification>
+                <entityType t-out="'INVOICE' if record.move_type == 'out_invoice' else 'CREDIT_NOTE'" />
+                <uniqueCreatorIdentification t-out="record.name.replace('/', '')" />
+            </requestForPaymentIdentification>
+            <specialInstruction code="AAB" t-if="record.invoice_payment_term_id">
+                <text t-out="record.invoice_payment_term_id.name" />
+            </specialInstruction>
+            <specialInstruction code="ZZZ">
+                <text t-out="record._l10n_mx_edi_cfdi_amount_to_text()" />
+            </specialInstruction>
+            <orderIdentification>
+                <referenceIdentification type="ON" t-out="extra_values[3] if extra_values[3] else '0'" />
+                <ReferenceDate t-out="extra_values[1]" />
+            </orderIdentification>
+            <AdditionalInformation>
+                <referenceIdentification t-att-type="extra_values[0]" t-out="extra_values[2]" />
+            </AdditionalInformation>
+            <AdditionalInformation>
+                <referenceIdentification type="IV" t-out="record.name.replace('/', '')" />
+            </AdditionalInformation>
+            <buyer>
+                <gln t-out="record.partner_id.ref" />
+            </buyer>
+            <seller>
+                <gln>0000000000000</gln> <!-- 13 character code, fill with zeros  -->
+                <alternatePartyIdentification
+                    type="SELLER_ASSIGNED_IDENTIFIER_FOR_A_PARTY"
+                >00000</alternatePartyIdentification>
+            </seller>
+            <shipTo>
+                <gln
+                    t-out="record.partner_shipping_id.comment or record.partner_id.ref if 'partner_shipping_id' in record._fields else record.partner_id.ref"
+                />
+                <nameAndAddress>
+                    <name
+                        t-out="(record.partner_shipping_id.name or '').lower().replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u').replace('ñ', 'n') if 'partner_shipping_id' in record._fields and record.partner_shipping_id.name else (record.partner_id.name or '').lower().replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u').replace('ñ', 'n') or ''"
+                    />
+                    <streetAddressOne
+                        t-out="(record.partner_shipping_id.street_name or '').lower().replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u').replace('ñ', 'n') if 'partner_shipping_id' in record._fields and record.partner_shipping_id.street_name else (record.partner_id.street_name or '').lower().replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u').replace('ñ', 'n') or ''"
+                    />
+                    <city
+                        t-out="(record.partner_shipping_id.city or '').lower().replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u').replace('ñ', 'n') if 'partner_shipping_id' in record._fields and record.partner_shipping_id.city else (record.partner_id.city or '').lower().replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u').replace('ñ', 'n') or ''"
+                    />
+                    <postalCode
+                        t-out="record.partner_shipping_id.zip if 'partner_shipping_id' in record._fields and record.partner_shipping_id.zip else record.partner_id.zip or ''"
+                    />
+                </nameAndAddress>
+            </shipTo>
+            <currency t-att-currencyISOCode="record.currency_id.name">
+                <currencyFunction>BILLING_CURRENCY</currencyFunction>
+                <rateOfChange t-out="values['currency_conversion_rate'] if record.currency_id.name != 'MXN' else 1" />
+            </currency>
+            <paymentTerms paymentTermsEvent="DATE_OF_INVOICE" PaymentTermsRelationTime="REFERENCE_AFTER">
+                <netPayment netPaymentTermsType="BASIC_NET">
+                    <paymentTimePeriod>
+                        <timePeriodDue timePeriod="DAYS">
+                            <value t-out="(record.invoice_date_due - record.invoice_date).days" />
+                        </timePeriodDue>
+                    </paymentTimePeriod>
+                </netPayment>
+                <discountPayment discountType="ALLOWANCE_BY_PAYMENT_ON_TIME">
+                    <percentage>0.000</percentage>
+                </discountPayment>
+            </paymentTerms>
+            <allowanceCharge settlementType="BILL_BACK" allowanceChargeType="ALLOWANCE_GLOBAL">
+                <specialServicesType>AJ</specialServicesType>
+                <monetaryAmountOrPercentage><rate base="INVOICE_VALUE">
+                        <percentage>0.00</percentage>
+                    </rate>
+                </monetaryAmountOrPercentage>
+            </allowanceCharge>
+            <t t-set="format_float" t-value="values['format_float']" />
+            <t t-set="currency_precision" t-value="values['currency_precision']" />
+            <t
+                t-set="invoice_line_vals_list"
+                t-value="record._prepare_edi_vals_to_export()['invoice_line_vals_list']"
+            />
+            <t t-foreach="invoice_line_vals_list" t-as="line_values">
+                <t t-set="line" t-value="line_values['line']" />
+                <t
+                    t-set="supplier_info"
+                    t-value="line.sudo().product_id.seller_ids.filtered(
+                        lambda s:
+                        s.partner_id == record.commercial_partner_id
+                        and s.product_id == line.product_id)[:1]"
+                />
+                <lineItem type="SimpleInvoiceLineItemType" t-att-number="line_values_index + 1">
+                    <tradeItemIdentification>
+                        <gtin
+                            t-out="line.x_addenda_supplier_code or supplier_info.product_code or line.product_id.barcode or ''"
+                        />
+                    </tradeItemIdentification>
+                    <alternateTradeItemIdentification
+                        type="BUYER_ASSIGNED"
+                        t-out="line.product_id.barcode or line.x_addenda_supplier_code or supplier_info.product_code or ''"
+                    />
+                    <tradeItemDescriptionInformation>
+                        <longText t-out="(line.name or '')[:1000]" />
+                    </tradeItemDescriptionInformation>
+                    <invoicedQuantity
+                        t-att-unitOfMeasure="(line.product_uom_id.name or '')[:1]"
+                        t-out="line.quantity"
+                    />
+                    <grossPrice>
+                        <Amount t-out="format_float(line_values['price_subtotal_unit'], currency_precision)" />
+                    </grossPrice>
+                    <netPrice>
+                        <Amount t-out="format_float(line_values['price_subtotal_unit'], currency_precision)" />
+                    </netPrice>
+                    <AdditionalInformation>
+                        <referenceIdentification
+                            type="ON"
+                            t-out="line.x_addenda_supplier_code or supplier_info.product_code or ''"
+                        />
+                    </AdditionalInformation>
+                    <totalLineAmount>
+                        <grossAmount>
+                            <Amount
+                                t-out="format_float(line_values['price_subtotal_before_discount'], currency_precision)"
+                            />
+                        </grossAmount>
+                        <netAmount>
+                            <Amount
+                                t-out="format_float(line_values['price_subtotal_before_discount'], currency_precision)"
+                            />
+                        </netAmount>
+                    </totalLineAmount>
+                </lineItem>
+            </t>
+            <totalAmount>
+                <Amount t-out="format_float(record.amount_total, currency_precision)" />
+            </totalAmount>
+            <TotalAllowanceCharge allowanceOrChargeType="ALLOWANCE">
+                <Amount>0.00</Amount>
+            </TotalAllowanceCharge>
+            <baseAmount>
+                <Amount t-out="format_float(values['total_price_subtotal_before_discount'], currency_precision)" />
+            </baseAmount>
+            <t t-set="get_tax_cfdi_name" t-value="values['get_tax_cfdi_name']" />
+            <t t-set="tax_type" t-value="{'003': 'GST', '002': 'VAT', '001': 'LAC'}" />
+            <t t-if="values['tax_details_transferred']">
+                <t t-foreach="values['tax_details_transferred']['tax_details'].values()" t-as="tax_detail_vals">
+                    <tax t-att-type="tax_type[get_tax_cfdi_name(tax_detail_vals)]">
+                        <taxPercentage t-out="format_float(tax_detail_vals['tax_rate_transferred'], 2)" />
+                        <taxAmount t-out="format_float(tax_detail_vals['tax_amount_currency'], 2) or 0.0" />
+                        <taxCategory>TRANSFERIDO</taxCategory>
+                    </tax>
+                </t>
+            </t>
+            <t t-if="values['tax_details_withholding']">
+                <t t-foreach="values['tax_details_withholding']['tax_details'].values()" t-as="tax_detail_vals">
+                    <tax t-att-type="tax_type[get_tax_cfdi_name(tax_detail_vals)]">
+                        <taxPercentage t-out="format_float(tax_detail_vals['tax_rate_withholding'], 2)" />
+                        <taxAmount t-out="format_float(-1.0 * tax_detail_vals['tax_amount_currency'], 2) or 0.0" />
+                        <taxCategory>RETENIDO</taxCategory>
+                    </tax>
+                </t>
+            </t>
+            <payableAmount>
+                <Amount t-out="format_float(record.amount_total, currency_precision)" />
+            </payableAmount>
+        </requestForPayment>
+    </template>
+    <record id="dunosusa" model="ir.ui.view">
+        <field name="l10n_mx_edi_addenda_flag">True</field>
+    </record>
+    <!--Wizard to set elements-->
+    <record id="wizard_dunosusa" model="ir.model">
+        <field name="name">Addenda Dunosusa</field>
+        <field name="transient" eval="True" />
+        <field name="model">x_addenda.dunosusa</field>
+        <field name="info">Addenda Dunosusa documentation</field>
+    </record>
+
+    <!--Fields on the wizard-->
+    <record id="wizard_dunosusa_reception" model="ir.model.fields">
+        <field name="name">x_additional_ref_code</field>
+        <field name="field_description">Additional Reference Code</field>
+        <field name="ttype">selection</field>
+        <field name="required">1</field>
+        <field
+            name="selection"
+        >[['AAE', 'Property account'], ['CK', 'Check number'], ['ACE', 'Document number (remission)'], ['ATZ', 'Approval number'], ['AWR', 'Document number that is replaced'], ['ON', 'Order number (buyer)'], ['DQ', 'Merchandise Receipt Folio']]</field>
+        <field name="help" />
+        <field name="model_id" ref="wizard_dunosusa" />
+    </record>
+    <record id="wizard_dunosusa_po_date" model="ir.model.fields">
+        <field name="name">x_po_date</field>
+        <field name="field_description">Date Purchase Order</field>
+        <field name="ttype">date</field>
+        <field name="required">1</field>
+        <field name="help">The date of the purchase order.</field>
+        <field name="model_id" ref="wizard_dunosusa" />
+    </record>
+    <record id="wizard_dunosusa_reception_folio" model="ir.model.fields">
+        <field name="name">x_additional_reference</field>
+        <field name="field_description">Additional Reference Number</field>
+        <field name="ttype">char</field>
+        <field name="required">1</field>
+        <field name="help">Additional reference number</field>
+        <field name="model_id" ref="wizard_dunosusa" />
+    </record>
+    <record id="wizard_dunosusa_order_number" model="ir.model.fields">
+        <field name="name">x_order_number</field>
+        <field name="field_description">Order Number</field>
+        <field name="ttype">char</field>
+        <field name="required">1</field>
+        <field
+            name="help"
+        >Purchase order number that supports the receipt of merchandise. This number is displayed in the portal.</field>
+        <field name="model_id" ref="wizard_dunosusa" />
+    </record>
+
+    <record id="wizard_dunosusa_invoice_line_ids" model="ir.model.fields">
+        <field name="name">x_invoice_line_ids</field>
+        <field name="field_description">Invoice Lines</field>
+        <field name="ttype">many2many</field>
+        <field name="model_id" ref="wizard_dunosusa" />
+        <field name="relation">account.move.line</field>
+    </record>
+
+    <!--Fields in invoice-->
+    <record id="invoice_dunosusa_field" model="ir.model.fields">
+        <field name="name">x_addenda_dunosusa</field>
+        <field name="field_description">Addenda Dunosusa</field>
+        <field name="ttype">char</field>
+        <field name="help">Used to concatenate wizard fields</field>
+        <field name="model_id" model="ir.model" search="[('model', '=', 'account.move')]" />
+    </record>
+    <record id="invoice_line_supplier_code" model="ir.model.fields">
+        <field name="name">x_addenda_supplier_code</field>
+        <field name="field_description">Supplier Code</field>
+        <field name="ttype">char</field>
+        <field
+            name="help"
+        >Product code as handled by the supplier. This value has to be set on each invoice line.</field>
+        <field name="model_id" model="ir.model" search="[('model', '=', 'account.move.line')]" />
+    </record>
+
+    <!--Server action that will set the values on the invoice.-->
+    <record id="set_addenda_dunosusa_values" model="ir.actions.server">
+        <field name="name">Set Values Addenda Dunosusa</field>
+        <field name="model_id" ref="account.model_account_move" />
+        <field name="state">code</field>
+        <field name="code">
+invoice = env['account.move'].browse(model._context['invoice_id'])
+wizard = env['x_addenda.dunosusa'].browse(model._context['active_id'])
+wizard_values = [
+    wizard.x_additional_ref_code,
+    wizard.x_po_date.strftime('%Y-%m-%d'),
+    wizard.x_additional_reference,
+    wizard.x_order_number,
+]
+wizard_values = '|'.join([value or '' for value in wizard_values])
+invoice.write({'x_addenda_dunosusa': wizard_values})
+
+# Create supplier info, if theyre not already created
+for line in invoice.invoice_line_ids:
+    if not any([line.x_addenda_supplier_code]):
+        continue
+    supplier_info = line.sudo().product_id.seller_ids.filtered(
+        lambda s:
+        s.partner_id == invoice.commercial_partner_id
+        and s.product_id == line.product_id
+        and s.sequence == 999)[:1]
+    if supplier_info:
+        supplier_info.write({
+            'product_code': line.x_addenda_supplier_code,
+        })
+    else:
+        supplier_info.create({
+            'partner_id': invoice.commercial_partner_id.id,
+            'product_tmpl_id': line.product_id.product_tmpl_id.id,
+            'product_id': line.product_id.id,
+            'sequence': 999,
+            'product_code': line.x_addenda_supplier_code,
+        })
+        </field>
+    </record>
+
+</odoo>

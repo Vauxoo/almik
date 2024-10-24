@@ -1,0 +1,134 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* addenda_envases
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-04 14:35+0000\n"
+"PO-Revision-Date: 2023-10-04 14:35+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: addenda_envases
+#: model_terms:ir.ui.view,arch_db:addenda_envases.envases
+msgid "1.0"
+msgstr ""
+
+#. module: addenda_envases
+#: model_terms:ir.ui.view,arch_db:addenda_envases.wizard_envases_view
+msgid "<b>Incoming Code:</b>"
+msgstr "<b>Código Entrante:</b>"
+
+#. module: addenda_envases
+#: model_terms:ir.ui.view,arch_db:addenda_envases.wizard_envases_view
+msgid "<b>Inventory Exit Code (optional):</b>"
+msgstr "<b>Código de Salida de Inventario (opcional):</b>"
+
+#. module: addenda_envases
+#: model_terms:ir.ui.view,arch_db:addenda_envases.wizard_envases_view
+msgid "<b>Purchase Order:</b>"
+msgstr "<b>Orden de Compra:</b>"
+
+#. module: addenda_envases
+#: model:ir.actions.act_window,name:addenda_envases.action_addenda_envases
+#: model:ir.model,name:addenda_envases.wizard_envases
+#: model:ir.model.fields,field_description:addenda_envases.invoice_envases_field
+#: model_terms:ir.ui.view,arch_db:addenda_envases.invoice_addenda_envases
+msgid "Addenda Envases"
+msgstr ""
+
+#. module: addenda_envases
+#: model_terms:ir.ui.view,arch_db:addenda_envases.wizard_envases_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: addenda_envases
+#: model_terms:ir.ui.view,arch_db:addenda_envases.envases
+msgid "Con_Pedido"
+msgstr ""
+
+#. module: addenda_envases
+#: model_terms:ir.ui.view,arch_db:addenda_envases.envases
+msgid "Factura"
+msgstr ""
+
+#. module: addenda_envases
+#: model:ir.model.fields,field_description:addenda_envases.wizard_envases_incoming_code
+msgid "Incoming Code"
+msgstr "Código Entrante"
+
+#. module: addenda_envases
+#: model:ir.model.fields,field_description:addenda_envases.wizard_envases_idtransaccion
+msgid "Inventory Exit Code"
+msgstr "Código de Salida de Inventario"
+
+#. module: addenda_envases
+#: model_terms:ir.ui.view,arch_db:addenda_envases.wizard_envases_view
+msgid "Set Values"
+msgstr "Establecer Valores"
+
+#. module: addenda_envases
+#: model:ir.actions.server,name:addenda_envases.set_addenda_envases_values
+msgid "Set Values for Addenda Envases"
+msgstr "Establecer Valores para Addenda Envases"
+
+#. module: addenda_envases
+#: model:ir.actions.server,name:addenda_envases.action_addenda_envases_defaults
+msgid "Set default values for the addenda Envases"
+msgstr "Establecer valores por defecto para la addenda Envases"
+
+#. module: addenda_envases
+#: model:ir.model.fields,help:addenda_envases.wizard_envases_incoming_code
+#: model_terms:ir.ui.view,arch_db:addenda_envases.wizard_envases_view
+msgid ""
+"The code given to the product when it arrives at stock location. This code "
+"is provided by the customer."
+msgstr ""
+"Código dado al producto cuando llegue a la localización de almacenamiento. "
+"Este código es proporcionado por el cliente."
+
+#. module: addenda_envases
+#: model:ir.model.fields,help:addenda_envases.wizard_envases_idtransaccion
+#: model_terms:ir.ui.view,arch_db:addenda_envases.wizard_envases_view
+msgid ""
+"The inventory exit code, must be formatted \"TEXT/TEXT/NUMBER\". The "
+"\"NUMBER\" part will be filled with zeros and prepend a \"2\". For example "
+"for the value \"MAZ/OUT/00657\", the final code will be \"2000000657\". If "
+"not code is entered the invoice number will be used instead. This code is "
+"provided by the customer."
+msgstr ""
+"El código de salida de inventario, debe de tener formato "
+"\"TEXTO/TEXTO/NÚMEROS\". La parte \"NÚMERO\" será llenada con zeros y "
+"antepuesta con un \"2\". Por ejemplo, para el valor \"MAZ/OUT/00657\", el "
+"código final será \"2000000657\". Si ningún código es especificado el número"
+" de factura será usado en su lugar. Este código es proporcionado por el "
+"cliente."
+
+#. module: addenda_envases
+#: model_terms:ir.ui.view,arch_db:addenda_envases.wizard_envases_view
+msgid ""
+"The necessary nodes for the implementation of the Addenda of Envases "
+"Universales de México, S.A.P.I. de C.V. are:"
+msgstr ""
+"Los nodos necesarios para la implementación de la Addenda de Envases "
+"Universales de México, S.A.P.I. de C.V. son:"
+
+#. module: addenda_envases
+#: model_terms:ir.ui.view,arch_db:addenda_envases.wizard_envases_view
+msgid ""
+"The number of the customer's purchase order. This value is taken from the "
+"invoice's field \"Reference/Description\"."
+msgstr ""
+"El número de orden de compra del cliente. Este valor es tomado del campo de "
+"la factura \"Referencia/Descripción\"."
+
+#. module: addenda_envases
+#: model:ir.model.fields,help:addenda_envases.invoice_envases_field
+msgid "Used to store wizard fields"
+msgstr "Usado para almacenar los campos del wizard"

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_internal_transfer_multicurrency" model="ir.ui.view">
+        <field name="name">internal.transfer.multicurrency</field>
+        <field name="model">internal.transfer.multicurrency</field>
+        <field name="arch" type="xml">
+            <form>
+                <group class="o_row">
+                    <p>Fill with the total amount that you will receive for this operation</p>
+                    <field name="agreed_amount" />
+                    <field name="currency_id" invisible="1" />
+                </group>
+                <footer>
+                    <button name="apply" string='Apply' type="object" class="btn-primary" />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_internal_transfer_multicurrency" model="ir.actions.act_window">
+        <field name="name">Specify the agreed amount</field>
+        <field name="res_model">internal.transfer.multicurrency</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
